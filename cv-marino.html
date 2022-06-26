@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curriculum a la Mar</title>
+</head>
+<body>
+    <header>
+        <div>
+        <h3><i>Por este medio hago presente mi honesta intención de formar parte de su navío.</i></h3>
+        </div>
+    </header>
+    <aside>
+        <!--esto tendría que estar al costado pero supongo que lo podre arreglar despues en la parte de css-->
+        <img src="imag/foto-perfil.png" alt="yo, galante">
+        <div>
+            <h4>Enlaces de interés:</h4>
+            <p><a href="https://www.marca.com/motor/formula1.html" target="_blank">Navios a 4 ruedas</a></p>
+            <p><a href="https://es.wikipedia.org/wiki/Kraken" target="_blank">Antiguo colega</a></p>
+            <h4>Multimedia:</h4>
+            <p><audio src="multim/Harbor-Noises.mp3" title="ruidos de muelles" controls></audio></p>
+            <p><video src="multim/gecko-ruido.mp4" poster="flor.jpg" title="ruido de gecko" controls></video></p>
+        </div>
+    </aside>
+    <main>
+        <div>
+            <h1>Teodoro Augusto Noveno Gimenéz de la Trinidad</h1>
+            <ul>
+                <li>Nacionalizado Argentino</li>
+                <li>Casado con el mar</li>
+                <li>Mayor de 21 años menor de 120</li>
+                <li>Localizable en cualquier oscuro bar de la bahía</li>
+            </ul>
+            <h3><u>Hazañas y tareas de nota</u></h3>
+            <p><ul>
+                <li>Deambulante de mares del norte</li>
+                <li>Olvidados al alcohol los mares del sur</li>
+                <li>Descreedor de los mares restantes</li>
+                <li>Reconocido tripulante en tres navíos, irreconocible en los otros seis</li>
+            </ul></p>
+            <h3><u>Entre mis aspiraciones se encuentran</u></h3>
+            <p><ol>
+                <li>Descubrir el Rio de la Plata</li>
+                <li>Dar bautizo a un naufragio</li>
+                <li>Desmoralizar a los espectros que me atormentan</li>
+            </ol></p>
+        </div>
+        <div>
+            <figure>
+                <!--busque para que quede el texto chico abajo de las imagenes, quedó medio igual que antes-->
+                <img src="imag/horrorosas-visiones1.jpg" alt="perro elegante" height="194">
+                <img src="imag/horrorosas-visiones2.gif" alt="esqueleto danzante">
+                <figcaption>Algunos de dichos espectros.</figcaption>
+            </figure>
+        </div>
+        <div>
+            <h2>Ante mi inevitable arribo a su embarcación, le pido me facilite la siguiente información:</h2>
+            <article>
+                <form action="" method="">
+                    <ul>
+                        <label for="barco">Nombre de Navío: </label>
+                        <ul><input type="text" name="nombre-barco" placeholder="El impreso en casco"/></ul>
+                        <label for="clave">Palabra clave: </label>
+                        <ul><input type="password" name="palabra-clave" />
+                        </ul>
+                        <label for="bebida">Bebida preferente:</label>
+                        <ul>
+                            <li><input type="radio" name="bebida" value="ginebra">
+                                <label>Ginebra</label></li>
+                        
+                            <li><input type="radio" name="bebida" value="vino">
+                                <label>Vino</label></li>
+                        
+                            <li><input type="radio" name="bebida" value="agua">
+                                <label>Agua</label></li>
+                        </ul>
+                        <label for="uniform">Uniforme:</label>
+                        <ul>
+                            <li><input type="checkbox" name="uniform[]" value="panuelo" id="panuelo" />
+                                <label for="panuelo">Pañuelo</label>
+                            </li>
+                            <li><input type="checkbox" name="uniform[]" value="gorro" id="gorro" />
+                                <label for="gorro">Gorro</label>
+                            </li>
+                            <li><input type="checkbox" name="uniform[]" value="catalejo" id="catalejo" />
+                                <label for="catalejo">Catalejo</label>
+                            </li>
+                        </ul>
+                        <p>
+                            <label for="animal">Bestias a bordo:</label>
+                            <select name="animal">
+                                <option value="loro">Loros</option>
+                                <option value="mono">Monos</option>
+                                <option value="rata">Ratas</option>
+                            </select>
+                        </p>
+                        <p>
+                            <label for="cancion">Canción popular:</label>
+                        </p>
+                        <p>
+                            <textarea name="cancion" id="cancion" rows="10"></textarea>
+                        </p>
+                        <p>
+                            <label for="fotobarco">Foto reciente:</label>
+                            <input type="file" name="fotobarco" id="fotobarco" />
+                        </p>
+                    </ul>
+                    <p>
+                        <input type="hidden" id="activacion" name="activacion" value="credulos1"></p>
+                    <p>
+                        <input type="submit" value="Enviar respuesta" />
+                        <input type="reset" value="Borrar todo" />
+                    </p>
+
+                </form>
+            </article>
+        </div>
+    </main>
+<!--no se si sera bueno usar el svg para crear lines separadoras, volver a ver-->
+    <svg width="500" height="2">
+        <line x1="0" y1="0" x2="500" y2="0" style="stroke:rgb(0,0,0);stroke-width:2"></line>
+    </svg>
+</body>
+</html>
