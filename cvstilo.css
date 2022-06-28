@@ -1,0 +1,74 @@
+/*Orden: primero modifican tipo de objeto, segundo modifican ids, tercero modifican class */
+h1{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+body{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+aside{
+    position:sticky;
+    min-width: 200px;
+    max-width: 360px;
+    background-color: blanchedalmond;
+    border-left-width: 2px;
+    border-color: brown;
+    float: right;
+    height: 100%;
+    padding-left: 6px;
+}
+main{
+    max-width: calc(100% - 320px);
+}
+img{
+    border: 1px solid black;
+    /* border-color: black; */
+}
+audio{
+    max-width: 360px;
+}
+video{
+    max-width: 360px;
+}
+form{
+    border-top: 3px;
+    border-bottom: 3px;
+    border-color: cadetblue;
+    border-style: solid dashed double dashed;
+    padding-left: 30px;
+    padding-top: 30px;
+    padding-bottom: 40px;
+    margin-right: 50px;
+    background-color: antiquewhite;
+}
+figcaption{
+    min-width: inherit;
+    text-align: center;
+}
+#atop{
+    position: relative;
+    max-height: 60px;
+    background-color:rgb(255, 254, 205);
+    color: darkslategray;
+    padding: 10px;
+    vertical-align: middle;
+
+
+    
+}
+#cvfotosextra{
+    display: flex;
+    min-width: inherit;
+    justify-content: center;
+    align-items: center;
+}
+#perfil{
+    border-radius: 10px;
+}
+.media{
+    display: inline-flex;
+    max-width: inherit;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    
+}
