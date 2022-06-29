@@ -1,14 +1,20 @@
-/*Orden: primero modifican tipo de objeto, segundo modifican ids, tercero modifican class */
+/*Orden: ACORDATE DE LA PRIORIDAD DE CASCADA */
 h1{
     font-family: Georgia, 'Times New Roman', Times, serif;
+    margin: 0;
 }
 body{
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    background: linear-gradient(180deg,#fdfeff 0%, #fffdfd 40%, #e8ecf3 80%);
+    text-indent: 20px;
 }
 aside{
+    display: block;
+    z-index: 3;
     position:sticky;
     min-width: 200px;
     max-width: 360px;
+    min-height: fill;
     background-color: blanchedalmond;
     border-left-width: 2px;
     border-color: brown;
@@ -19,15 +25,42 @@ aside{
 main{
     max-width: calc(100% - 320px);
 }
+#atop{
+    position: relative;
+    max-height: 60px;
+    background-color:rgb(255, 254, 205);
+    color: rgb(15, 20, 20);
+    padding-left: 14px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    margin-top: 0px;
+    vertical-align: middle;
+    text-indent: 1px;
+}
+header{
+    padding: 0;
+    margin: 0;
+}
+p{
+    margin: 4px;
+}
 img{
     border: 1px solid black;
-    /* border-color: black; */
 }
 audio{
     max-width: 360px;
 }
 video{
     max-width: 360px;
+}
+.boton{
+    min-height: 20px;
+    background-color: black;
+    padding: 4px;
+    color: azure;
+    font-size: 16px;
+    font-weight: bold;
+    font-family:'Courier New', Courier, monospace;
 }
 form{
     border-top: 3px;
@@ -43,17 +76,20 @@ form{
 figcaption{
     min-width: inherit;
     text-align: center;
+    font-style: italic;
 }
-#atop{
-    position: relative;
-    max-height: 60px;
-    background-color:rgb(255, 254, 205);
-    color: darkslategray;
-    padding: 10px;
-    vertical-align: middle;
 
+#comentar{
+    display: flexbox;
+    margin: 24px;
+    margin-right: 50px;
+    padding: 8px;
+    min-width: inherit;
+    justify-content: center;
+    align-content: left;
+    background: linear-gradient(rgba(231, 231, 231, 0.986), rgba(97, 97, 97, 0.925),);
+    border: 1px solid grey;
 
-    
 }
 #cvfotosextra{
     display: flex;
@@ -63,6 +99,28 @@ figcaption{
 }
 #perfil{
     border-radius: 10px;
+}
+.comm{
+    font-weight: bold;
+    align-content: medium;
+    
+}
+.foto_com{
+    padding: 4px;
+    margin: 2px;
+    border: 2px groove gray;
+}
+.commtext{
+    display: flex;
+    margin-top: 2px;
+    margin-bottom: 8px;
+    padding-left: 4px;
+    padding-bottom: 16px;
+    border: 1px ridge darkslategray;
+    background-color: white;
+    font-size: 14px;
+    font-weight: normal;
+    text-align: start;
 }
 .media{
     display: inline-flex;
