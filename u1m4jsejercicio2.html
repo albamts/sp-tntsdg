@@ -8,13 +8,14 @@
 </head>
 <body>
     <script>
-        var num = [54, 2, 21, 89, 5, 34, 99, 27]
-        var n = 0
-        var o = 1
+        var num = [54, 2, 21, 89, 5, 99, 51, 20, 120, 27];
+        var n = 0;
+        
 
-        while(0<=n>num.length-1){
-            for(n=0; num[n-1]<num[n]>num[n+1]; n=n+1){
-
+        for(var o = 1; o < num.length; o++){
+            if(num[n]<num[o]){
+                n++;
+                o = 1;
             }
         }
         document.write('El numero mas alto es ' + num[n]);

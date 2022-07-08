@@ -26,11 +26,27 @@ for(n=0; num[n-1]<num[n]>num[n+1]; n++){
 
 document.write('El numero mas alto es ' + num[o]);
 
+while(n<num.length){
+    while(num[n]>num[o]){
+        o++
+    }
+    n++
+}
+document.write('El numero mas alto es ' + num[n]);
 
 while(num[n]>num[o]){
     o++;
 }
 
+
+while(n < num.length-1 && o < num.length-2){
+    if(num[n]>num[o]){
+        o++
+    }else{
+        n++
+        o = 0
+    }
+}
 
 while(0<=n>num.length-1){
     for(n=0; num[n-1]<num[n]>num[n+1]; n++){
