@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>M2U1 JS Avanzado</title>
+</head>
+<body style="background-color:#FFF033;" id="corpo">
+    <!-- Ejercicio 1:
+    Crear un documento html con 3 cuadrados que, al ser clickeados, cambien el color de fondo del documento. Cada cuadrado deberá tener un color distinto.
+
+    Ejercicio 2: 
+    Programar un contador de caracteres para un textarea. -->
+
+
+    <div id="color" style="position: relative">
+        <button name="amarillo" type="button" id="amarillo" onclick="cambiarColor('#FFF033;')">
+            <svg width="60px" height="60px">
+                <rect width="60px" height="60px" fill="#FFF033" />
+            </svg>
+        </button>
+        <button name="rojo" type="button" id="rojo" onclick="cambiarColor('#FF4633;')">
+            <svg width="60px" height="60px">
+                <rect width="60px" height="60px" fill="#FF4633" />
+            </svg>
+        </button>
+        <button name="azul" type="button" id="azul" onclick="cambiarColor('#0451C0;')">
+            <svg width="60px" height="60px">
+                <rect width="60px" height="60px" fill="#0451C0" />
+            </svg>
+        </button>
+    </div>
+
+    <div>
+        <h4>Se cuentan los siguientes caracteres:</h4>
+        <textarea name="contarea" id="contador" rows="16" cols="46"></textarea>
+        <h6>El numero de caracteres es: <span id="nume">0</span></h6>
+
+    </div>
+
+
+    <script>
+        //var colores = ['#FFF033', '#FF4633', '#0451C0'];
+        //var bcolor = colores[0];
+        var bcolor = '#FFF033';
+        var bd = document.getElementById('corpo');
+        var areatext = document.getElementById('contador');
+        var cantiti = document.getElementById('nume');
+        var quanto
+        
+        function cambiarColor(bcolor){
+            bd.style = 'background-color:' + bcolor;
+            return
+            
+        }
+
+        areatext.addEventListener('keyup', cuente);
+        //nota para mi, llamar innertext funciona mejor con cosas que tienen etiquetas de cierre, mejor a veces es value....
+
+        function cuente(){
+            quanto = areatext.value.length;
+            cantiti.innerText = quanto;
+            return
+
+        }
+
+
+
+    </script>
+    
+</body>
+</html>

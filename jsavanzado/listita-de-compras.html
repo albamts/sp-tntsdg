@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Compras Express</title>
+</head>
+<body>
+    <h3>Comprar:</h3>
+
+    <input type="text" id="otroMas" />
+    <button onclick="aComprar()">Agregar</button>
+
+    <ul id="listacompras">
+        <li class="comprar"></li>
+
+    </ul>
+
+    <button>Borrar todos</button>
+
+    <script>
+        var producto; // = document.getElementById('otroMas').innerText;
+        //var producto;
+        var cuantosEnLista = document.querySelectorAll('li')
+        var num = 1
+        //aca va para agregar otro elemento a lista compras
+        function aComprar(){
+            producto = document.getElementById('otroMas').value;
+            if(producto === ''){
+                alert('¡Tenes que escribir que producto es antes de agregarlo!');
+            }else{
+                var otraCosa =document.createElement('li');
+                otraCosa.innerText=producto + "  ";
+                otraCosa.id=++num
+                var quitaCosa=document.createElement('button');
+                quitaCosa.innerText="X";
+                var codBoton = "borrar(" + num + ");";
+                quitaCosa.setAttribute('onclick', codBoton);
+                //quitaCosa.innerHTML = 'click'
+                //quitaCosa.onclick = borrar();
+                otraCosa.appendChild(quitaCosa);
+                document.getElementById('listacompras').appendChild(otraCosa);
+
+
+                //para que limpie
+                document.getElementById('otroMas').innerText = "";
+
+            }
+
+            //
+            //
+            
+        }
+        function borrar(que){
+            document.getElementById(que).remove();
+            //return
+
+
+
+        }
+        //y para si queres sacar todos borrar todo te limpie la lista.
+    </script>
+
+
+    
+</body>
+</html>
