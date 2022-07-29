@@ -1,0 +1,31 @@
+#carro{
+    /* esto no me esta cambiando nada che */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+.carousel-inner{
+    height: inherit;
+    width: inherit;
+
+}
+.carousel-item{
+    object-fit: fill;
+    width: inherit;
+
+}
+hr{
+    margin: 5px;
+
+}
+nav{
+    background-color: black;
+    font-weight: bolder;
+}
+/* body{
+    display: flex;
+    vertical-align: middle;
+    flex-direction: column;
+    justify-items: center;
+ } */
