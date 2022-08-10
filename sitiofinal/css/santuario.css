@@ -1,0 +1,67 @@
+#presentador{
+    display: flex;
+    align-items: stretch;
+    height: 50vh;
+    width: 100vw;
+    background-image: url(../img/poster.jpg);
+    background-size: cover;
+    background-color: darkkhaki;
+}
+#poster{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    width: 70vw;
+}
+#breves{
+    width: 30vw;
+    height: inherit;
+    font-weight: bold; 
+    font-size: large;
+    background-color: rgba(255, 255, 255, 0.829);
+}
+#adopciones{
+    display: flex;
+    flex-wrap: wrap;
+}
+.sectionario{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: stretch;
+    height: 16vh;
+    width: 96vw;
+    font-weight: 800;
+    font-size: 46px;
+    border-bottom: 3px solid black;
+    /* text-decoration: underline black 4px; */
+}
+h3{
+    color:coral;
+    font-weight: 600;
+}
+h1{
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 900;
+    font-size: 70px;
+    color: white;
+    -webkit-text-fill-color: white;
+    -webkit-text-stroke: 2px;
+    -webkit-text-stroke-color: darkslategray;
+}
+a{
+    color: #00331a;
+}
+nav{
+    font-weight: bolder;
+    background-color: #00b359;
+}
+body{
+    background-color: rgb(255, 255, 153);
+    font-family:'Cabin', sans-serif;;
+}
+footer{
+    font-weight: bolder;
+    color:  #e0ebeb;
+    background-color: darkslategrey;
+}
