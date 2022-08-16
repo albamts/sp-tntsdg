@@ -14,20 +14,19 @@
 <body>
     <!-- En base al tema elegido para la entrega del proyecto, maquetar 2 secciones distintas del sitio.
         Subir a un repositorio público en GitHub y compartir la URL del mismo. -->
-    <!-- a la mierda voy a hacer una pagina de santuario de animales y ya esta -->
     <nav class="navbar navbar-expand-lg absolute-top bg-opacity-75 bg-gradient">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">¡Bienvenidos!</a>
+            <a class="navbar-brand ps-3"  href="#"><span class="fs-3 p-2 bg-warning rounded-2">¡Bienvenidos!</span></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
+                    <li class="nav-item ps-3">
                         <a class="nav-link active" aria-current="page" href="#">Inicio</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Adopciones</a>
+                        <a class="nav-link" href="#adopciones">Adopciones</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="true">
@@ -54,7 +53,8 @@
             </div>
             <div id="breves">
                 <ul class="list-group list-group-flush text-muted text-truncate">
-                    <li class="list-group-item bg-transparent">Ultimas Noticias:</li>
+                    <!-- luego van a llevar a una seccion tipo blog -->
+                    <li id="tituloNews" class="list-group-item bg-transparent">Ultimas Noticias:</li>
                     <li class="list-group-item ps-5 bg-transparent">
                         <a href="#">¡Ricardo hizo una donación!</a>
                     </li>
@@ -75,48 +75,113 @@
         </div>
         <!-- la seccion de adopciones -->
         <div id="adopciones" class="m-3 gap-3">
+            <!-- la idea es luego hacer click en los nombres y que abra una descripcion mas detallada -->
             <div class="card" style="width: 18rem;">
                 <img src="img/adop-1_th.jpg" class="card-img-top" alt="lara">
                 <div class="card-body">
-                    <button type="button" class="btn btn-outline-success card-title fw-bold" id="tLaraLink" style="width: 160px;">Lara</button>
+                    <button type="button" class="b-adopt btn btn-outline-success card-title fw-bold" id="aLara" onclick="verDetalle('dLara')" style="width: 160px;">Lara</button>
                     <p class="card-text">Perrita de unos 3 años.</p>
+                    <p class="card-text text-success fw-light">Energetica. Buena con chicos y mascotas.</p>
                 </div>
             </div>
             <div class="card" style="width: 18rem;">
                 <img src="img/adop-2_th.jpg" class="card-img-top" alt="coco">
                 <div class="card-body">
-                    <button type="button" class="btn btn-outline-success card-title fw-bold" id="tCocoLink" style="width: 160px;">Coco</button>
+                    <button type="button" class="b-adopt btn btn-outline-success card-title fw-bold" id="aCoco" onclick="verDetalle('dCoco')" style="width: 160px;">Coco</button>
                     <p class="card-text">Gato de 1 año.</p>
+                    <p class="card-text text-success fw-light">Cariñoso. Bueno con chicos.</p>
+                    <p class="card-text text-warning fw-light">Problemas renales.</p>
+                </div>
+            </div>
+            <div class="card" style="width: 18rem;">
+                <img src="img/adop-3_th.jpg" class="card-img-top" alt="lupo">
+                <div class="card-body">
+                    <button type="button" class="b-adopt btn btn-outline-success card-title fw-bold" id="aLupo" onclick="verDetalle('dLupo')" style="width: 160px;">Lupo</button>
+                    <p class="card-text">Perro de unos 5 años.</p>
+                    <p class="card-text text-success fw-light">Tranquilo. Bueno con animales.</p>
+                    <p class="card-text text-warning fw-light">Niños lo ponen nervioso.</p>
+                </div>
+            </div>
+            <div class="card" style="width: 18rem;">
+                <img src="img/adop-4_th.jpg" class="card-img-top" alt="tito">
+                <div class="card-body">
+                    <button type="button" class="b-adopt btn btn-outline-success card-title fw-bold" id="aTito" onclick="verDetalle('dTito')" style="width: 160px;">Tito</button>
+                    <p class="card-text">Perro de unos 4 meses.</p>
+                    <p class="card-text text-success fw-light">Va a ser tamaño chico. Sano y energetico.</p>
+                    <p class="card-text text-warning fw-light">Aun no esta en adopción.</p>
+                </div>
+            </div>
+            <div class="card" style="width: 18rem;">
+                <img src="img/adop-5_th.jpg" class="card-img-top" alt="felicia">
+                <div class="card-body">
+                    <button type="button" class="b-adopt btn btn-outline-success card-title fw-bold" id="aFelicia" onclick="verDetalle('dFelicia')" style="width: 160px;">Felicia</button>
+                    <p class="card-text">Gata de unos 6 años.</p>
+                    <p class="card-text text-success fw-light">Independiente, buen temperamento. No teme a otros animales.</p>
                 </div>
             </div>
         </div>
-        <!-- ACA VAN LOS TOASTS PARA Adopciones -->
-        <div class="toast-container top-50 start-50 translate-middle text-bg-light">
-            <div id="tLara" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
-              <div class="toast-header">
-                <strong class="me-auto fs-2 fw-semibold">Lara</strong>
-                <small>Mestiza</small>
-                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-              </div>
-              <div class="toast-body">
-                <p>Ella es Lara, tiene unos 3 años. Muy energetica, necesita que la saquen a pasaer una vez por dia. Se lleva bien con chicos y con otros perros.</p>
-              </div>
+        <!-- ACA VAN Las tarjetas de Adopciones -->
+        <div id="detallesAdoptivos">
+            <div id="dLara" class="oculto">
+                <div class="titulo">
+                    <strong class="me-auto fw-semibold">Lara</strong>
+                    <button type="button" class="btn-close fs-5" aria-label="Cerrar" onclick="cerrarDetalle('dLara')"></button>
+                </div>
+                <div class="intramarco">
+                    <img src="img/adop-1.jpg" alt="Lara, vista completa" class="rounded img-fluid float-end" style="max-width:30vw">
+                    <small>Mestiza</small>
+                    <p>Ella es Lara, tiene unos 3 años. Muy energetica, necesita que la saquen a pasear una vez por dia. <br>Se lleva bien con chicos y con otros perros.</p>
+                </div>
             </div>
-            <div id="tCoco" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
-                <div class="toast-header">
-                  <strong class="me-auto fs-2 fw-semibold">Coco</strong>
-                  <small>Mestizo</small>
-                  <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            <div id="dCoco" class="oculto">
+                <div class="titulo">
+                    <strong class="me-auto fw-semibold">Coco</strong>
+                    <button type="button" class="btn-close fs-5" aria-label="Cerrar" onclick="cerrarDetalle('dCoco')"></button>
                 </div>
-                <div class="toast-body">
-                  <p>Él es Coco, tiene 1 año. Tranquilo, le gusta pasear pero se queda siempre cerca de uno. Le tiene miedo a los perros, pero tiene paciencia con los chicos. Mimoso</p>
-                  <p class="text-primary">Ojo: Coco tiene problemas de riñon y come alimento especial.</p>
+                <div class="intramarco">
+                    <img src="img/adop-2.jpg" alt="Coco, vista completa" class="rounded img-fluid float-end" style="max-width:30vw">
+                    <small>Mestizo</small>
+                    <p>Él es Coco, tiene 1 año. Tranquilo, le gusta pasear pero se queda siempre cerca de uno. Le tiene miedo a los perros, pero tiene paciencia con los chicos. Mimoso</p>
+                    <p class="text-primary">Ojo: Coco tiene problemas de riñon y come alimento especial.</p>
                 </div>
-              </div>
-          </div>
+            </div>
+            <div id="dLupo" class="oculto">
+                <div class="titulo">
+                    <strong class="me-auto fw-semibold">Lupo</strong>
+                    <button type="button" class="btn-close fs-5" aria-label="Cerrar" onclick="cerrarDetalle('dLupo')"></button>
+                </div>
+                <div class="intramarco">
+                    <img src="img/adop-3.jpg" alt="Lupo, vista completa" class="rounded img-fluid float-end" style="max-width:30vw">
+                    <small>Mestizo</small>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis, natus facere? Asperiores, facere ad. Officia assumenda iure porro at fugit quos eveniet, dolorem, minima, adipisci voluptatem dolore nulla nam sed.</p>
+                </div>
+            </div>
+            <div id="dTito" class="oculto">
+                <div class="titulo">
+                    <strong class="me-auto fw-semibold">Tito</strong>
+                    <button type="button" class="btn-close fs-5" aria-label="Cerrar" onclick="cerrarDetalle('dTito')"></button>
+                </div>
+                <div class="intramarco">
+                    <img src="img/adop-4.jpg" alt="Tito, vista completa" class="rounded img-fluid float-end" style="max-width:30vw">
+                    <small>Mestizo</small>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium soluta, ipsa ad facere quidem molestias eos, unde sed repellat iusto animi odit ducimus, placeat enim officiis voluptas voluptate nisi totam!</p>
+                </div>
+            </div>
+            <div id="dFelicia" class="oculto">
+                <div class="titulo">
+                    <strong class="me-auto fw-semibold">Felicia</strong>
+                    <button type="button" class="btn-close fs-5" aria-label="Cerrar" onclick="cerrarDetalle('dFelicia')"></button>
+                </div>
+                <div class="intramarco">
+                    <img src="img/adop-5.jpg" alt="Felicia, vista completa" class="rounded img-fluid float-end" style="max-width:30vw">
+                    <small>Mestiza</small>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis iusto ad ab tempora explicabo illo ratione. Repellendus sunt cum nostrum velit eius dignissimos cumque? Dignissimos blanditiis maxime quod nihil natus.</p>
+                </div>
+            </div>
+        </div>
     </div>
     <div>
-        <footer class="mx-auto absolute-bottom">
+        <footer class="absolute-bottom">
             <p>Matias Albarracin @ 2022</p>
         </footer>
     </div>
@@ -130,24 +195,19 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js" integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK" crossorigin="anonymous"></script>
     <script>
-        const toastTrigger = document.getElementById('tLaraLink')
-        const toastLiveExample = document.getElementById('tLara')
-        if (toastTrigger) {
-        toastTrigger.addEventListener('click', () => {
-            const toast = new bootstrap.Toast(tLara)
-            toast.show()
-            }
-            )
-        }
-        const toastTrigger2 = document.getElementById('tCocoLink')
-        const toastLiveExample2 = document.getElementById('tCoco')
-        if (toastTrigger) {
-        toastTrigger.addEventListener('click', () => {
-            const toast = new bootstrap.Toast(tCoco)
-            toast.show()
-            }
-            )
-        }
+        //para ver detalles de los animales en adopcion
+        var addp = document.getElementById('adopciones');
+        var cual; //cual animal se pide detalle
+
+        function verDetalle(cual){
+            document.getElementById(cual).className = 'visible';
+        };
+        function cerrarDetalle(cual){
+            document.getElementById(cual).className = 'oculto';
+        };
+
+        //var selecc = document.getElementById()
+
     </script>
 </body>
 </html>

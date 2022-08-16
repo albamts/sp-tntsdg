@@ -13,16 +13,65 @@
     flex-direction: column;
     width: 70vw;
 }
+#breves #tituloNews{
+    font-weight: 800;
+}
 #breves{
     width: 30vw;
     height: inherit;
     font-weight: bold; 
     font-size: large;
-    background-color: rgba(255, 255, 255, 0.829);
+    /* background-color: rgba(255, 245, 155, 0.95); */
+    background-color: rgba(181, 241, 111, 0.95);
 }
 #adopciones{
     display: flex;
     flex-wrap: wrap;
+}
+.visible .titulo ::first-letter{
+    width: fit-content;
+    font-size: 60;
+    color: rgb(255, 101, 41);
+    /* background-color: white; */
+    padding: 2px;
+    margin-bottom: 2px;
+}
+.visible .titulo{
+    display: flex;
+    justify-content: space-between;
+    font-size: 56px;
+    color: rgb(255, 255, 255);
+    padding-left: 50px;
+    margin-bottom: -10px;
+}
+.visible .intramarco{
+    display: flex;
+    flex-direction: column;
+    
+    height: inherit;
+    margin: 8px;
+    padding: 20px;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgba(0, 145, 101, 0.8);
+}
+.visible{
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 10%;
+    bottom: 20%;
+    left: 4%;
+    right: 4%;
+    z-index: 20;
+    width: 80vw;
+    height: 80vh;
+    margin: 20px;
+    padding: 8px;
+    background-color: rgba(9, 75, 55, 0.8);
+    border: 3px double rgba(18, 48, 39, 0.8);
+}
+.oculto{
+    display: none;
 }
 .sectionario{
     display: flex;
@@ -33,7 +82,7 @@
     width: 96vw;
     font-weight: 800;
     font-size: 46px;
-    border-bottom: 3px solid black;
+    border-bottom: 3px double rgba(0, 0, 0, 0.6);
     /* text-decoration: underline black 4px; */
 }
 h3{
@@ -54,14 +103,16 @@ a{
 }
 nav{
     font-weight: bolder;
-    background-color: #00b359;
+    background-color: #00d169;
+    border-bottom: 1px solid rgb(174, 182, 94);
 }
 body{
     background-color: rgb(255, 255, 153);
     font-family:'Cabin', sans-serif;;
 }
 footer{
-    font-weight: bolder;
+    font-weight: bold;
     color:  #e0ebeb;
     background-color: darkslategrey;
+    text-align: center;
 }
