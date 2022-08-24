@@ -28,6 +28,10 @@
     display: flex;
     flex-wrap: wrap;
 }
+#lugarfoto{
+    width: 80vw;
+    margin-inline-start: 8vw;
+}
 .visible .titulo ::first-letter{
     width: fit-content;
     font-size: 60;
@@ -85,6 +89,9 @@
     border-bottom: 3px double rgba(0, 0, 0, 0.6);
     /* text-decoration: underline black 4px; */
 }
+.seccione{
+    scroll-margin-top: 80px; 
+}
 h3{
     color:coral;
     font-weight: 600;
@@ -107,7 +114,7 @@ nav{
     border-bottom: 1px solid rgb(174, 182, 94);
 }
 body{
-    background-color: rgb(255, 255, 153);
+    background-color: rgb(253, 253, 186);
     font-family:'Cabin', sans-serif;;
 }
 footer{
