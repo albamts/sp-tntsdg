@@ -1,0 +1,19 @@
+{
+  "name": "modulo-3",
+  "version": "1.0.0",
+  "description": "pruebas node",
+  "main": "testeonode.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "probando"
+  ],
+  "author": "Matias",
+  "license": "ISC",
+  "dependencies": {
+    "aos": "^2.3.4",
+    "bootstrap": "^5.2.0",
+    "moment": "^2.29.4"
+  }
+}

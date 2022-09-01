@@ -53,16 +53,16 @@
                     <!-- luego van a llevar a una seccion tipo blog -->
                     <li id="tituloNews" class="list-group-item bg-transparent">Ultimas Noticias:</li>
                     <li class="list-group-item ps-5 bg-transparent">
-                        <a href="#">¡Ricardo hizo una donación!</a>
+                        <a href="#noticias" onclick="verNoticia(art4)">¡Ricardo hizo una donación!</a>
                     </li>
                     <li class="list-group-item ps-5 bg-transparent">
-                        <a href="#">¡Bienvenido Lupo!</a>
+                        <a href="#noticias" onclick="verNoticia(art3)">¡Bienvenido Lupo!</a>
                     </li>
                     <li class="list-group-item ps-5 bg-transparent">
-                        <a href="#">¡Monzo encontró hogar!</a>
+                        <a href="#noticias" onclick="verNoticia(art2)">¡Monzo encontró hogar!</a>
                     </li>
                     <li class="list-group-item ps-5 bg-transparent">
-                        <a href="#">Campaña de vacunaciones</a>
+                        <a href="#noticias" onclick="verNoticia(art1)">Campaña de vacunaciones</a>
                     </li>
                 </ul>
             </div>
@@ -177,6 +177,33 @@
             </div>
         </div>
         <!-- aca terminan las tarjetas de adopcion, por ahora se quedan aca. luego ver si conviene correrlas al fin del doc -->
+        <div class="sectionario">
+            <h2 class="ps-4">Ultimas noticias</h2>
+        </div>        
+
+        <!-- seccion de noticias o blog, es un bloque de texto que se actualiza segun el link que clickees -->
+        <div id="noticias" class="seccione row gap-2 mt-2">
+            <div id="nota" class="col-7">
+                <!-- por defecto se llena con el ultimo articulo agregado, haces click y esta seccion cambia para mostrar la noticia elegida -->
+                <div id="titularMAX" class="f-2 fw-bolder"></div>
+                <div id="corporalnota" class="text-start text-wrap"></div>
+                <div id="fechaNota" class="f-6"></div>
+
+
+            </div>
+            <div id="articulos" class="col-4">
+                <!-- aca tendria que buscar y generar links segun cuantos articulos titulares tengo o tendran que estar cargados todos si o si para poder llamarlos a vista -->
+                <ul id="articuloslista" class="overflow-auto">
+                    <li><a onclick="verNoticia(art4)">¡Ricardo hizo una donación!</a></li>
+                    <li><a onclick="verNoticia(art3)">¡Bienvenido Lupo!</a></li>
+                    <li><a onclick="verNoticia(art2)">¡Monzo encontró hogar!</a></li>
+                    <li><a onclick="verNoticia(art1)">Campaña de vacunaciones</a></li>
+                </ul>
+            </div>
+
+        </div>
+        <!-- fin seccion noticias blog -->
+
         <!-- aca va la seccion "sobre nosotros" -->
         <div class="sectionario">
             <h2 class="ps-4">Sobre nosotros</h2>
@@ -279,6 +306,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js" integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK" crossorigin="anonymous"></script>
+    <script src="js/noticias.js"></script>
     <script>
         //para ver detalles de los animales en adopcion
         var addp = document.getElementById('adopciones');
@@ -292,6 +320,15 @@
         };
 
         //var selecc = document.getElementById()
+        function verNoticia(artic){
+            var notaActiva = artic
+            document.getElementById('titularMAX').innerText = artic[0]
+            document.getElementById('corporalnota').innerText = artic[2]
+            document.getElementById('fechaNota').innerText = artic[1]
+            
+        }
+
+        
 
 
     </script>
