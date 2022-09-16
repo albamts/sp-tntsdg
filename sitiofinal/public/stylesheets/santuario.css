@@ -3,7 +3,7 @@
     align-items: stretch;
     height: 50vh;
     width: 100vw;
-    background-image: url(../img/poster.jpg);
+    background-image: url(/images/poster.jpg);
     background-size: cover;
     background-color: darkkhaki;
 }
@@ -34,17 +34,22 @@
 }
 #nota{
     height: 60vh;
-    margin-left: 20px;
+    margin-left: 30px;
     padding: 14px 8px;
     border: 1px solid rgba(0, 0, 0, 0.6);
-    background-color: #FFF;
+    background-color: rgba(255, 255, 255, 0.8);
 }
 #articuloslista{
+    padding: 12px;
+    padding-top: 24px;
+    padding-bottom: 24px;
     text-decoration: underline;
     font-weight: 600;
-    color: #00331a;
-    background-color: #FFF;
+    color: #181818;
+    background: linear-gradient(180deg,#b2d2ba 0%, rgba(134,228,134,0.42) 86%);
     cursor: pointer;
+    height: 60vh;
+    list-style-type: none;
 }
 .visible .titulo ::first-letter{
     width: fit-content;
@@ -96,7 +101,7 @@
     flex-direction: column;
     justify-content: flex-end;
     align-items: stretch;
-    height: 16vh;
+    height: 8vh;
     width: 96vw;
     font-weight: 800;
     font-size: 46px;
@@ -129,11 +134,12 @@ nav{
 }
 body{
     background-color: rgb(253, 253, 186);
-    font-family:'Cabin', sans-serif;;
+    font-family:'Cabin', sans-serif;
+    padding-bottom: 60px;
 }
 footer{
-    font-weight: bold;
     color:  #e0ebeb;
-    background-color: darkslategrey;
+    background-color: rgb(90, 124, 124);
     text-align: center;
+    font-size: smaller;
 }
