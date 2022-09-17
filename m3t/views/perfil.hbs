@@ -1,0 +1,22 @@
+{{#unless afiliado}}
+<p><h3>No tenes permiso para ver esta pagina.</h3></p>
+<p><br>Para proseguir, inicia sesión.</p>
+{{!-- <form action="/ingresop" method="post">
+    <label for="quien">Afiliado: </label>
+    <input type="text" name="quien">
+    <button>Entrar</button>
+</form> --}}
+{{/unless}}
+
+{{#if afiliado}}
+<p><h1>{{quien}}.</h1></p>
+<p>Afiliado desde hace 4 años.</p>
+<p>Visitas a esta pagina: {{visita}}</p>
+<p>Sede Tropico.</p>
+<p>Responsabilidades:</p>
+<ul>
+    <li>Equipo V11</li>
+    <li>Sucursal Gral Belgrano</li>
+    <li>Mision estrategica T7, T8, Planta 6.</li>
+</ul>
+{{/if}}
