@@ -5,6 +5,10 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const session = require('express-session')
 
+require('dotenv').config();
+var pool = require('./modelos/bd');
+
+
 var indexRouter = require('./routes/index');
 
 //propiooos
@@ -92,7 +96,42 @@ app.use('/perfil', perfilRuta);
 
 app.use('/fin', function(req,res){
   res.send('<h1>Fin</h1><p><a href="/">........?</a></p>')
+});
+
+
+//traer todos
+pool.query('select * from agente').then(function (resultados) {
+  console.log(resultados)
 })
+
+//traer los del tropico
+// pool.query('select * from agente where sede="Tropico"').then(function (resultados) {
+//   console.log(resultados)
+// })
+
+//solo los de antiguedad mayor o igual aa
+// var antti = 15
+
+// pool.query('select * from agente where antiguedad>=?', [antti]).then(function (resultados) {
+//   console.log(resultados)
+// })
+
+//agrega a uno
+// var novos = {
+//   nombre_completo: 'Miguel Aranda',
+//   antiguedad: 3,
+//   sede: 'Sur',
+//   responsabilidad: 'Tareas generales'
+// }
+
+// pool.query('insert into agente set ?', [novos]).then(function (resultados) {
+//   console.log(resultados)
+// })
+
+// pool.query('select * from agente').then(function (resultados) {
+//   console.log(resultados)
+// })
+
 
 
 // catch 404 and forward to error handler
