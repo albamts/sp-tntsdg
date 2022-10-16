@@ -1,0 +1,25 @@
+<div class="card text-center m-5">
+  <div class="card-header">
+    Inicio de Sesion
+  </div>
+  {{#if nombre}}
+  <h5 class="text-success">¡Hola {{nombre}}! <br>Ya has iniciado sesion.</h5>
+  {{else}}
+  <div class="card-body ms-5 me-5">
+    <form action="/admin/inicio" method="post">
+      <div class="input-group mb-3">
+        <span class="input-group-text">Usuario</span>
+        <input type="text" class="form-control" id="floatingInputGroup1" name="quien">
+      </div>
+      <div class="input-group mb-3">
+        <span class="input-group-text">Contraseña</span>
+        <input type="password" class="form-control" id="floatingInputGroup1" name="clave">
+      </div>
+      <button type="submit" class="btn btn-warning">Ingresar</button>
+      {{#if error}}
+      <p class="text-danger">Su usuario o contraseña son incorrectos.</p>
+      {{/if}}
+    </form>
+  </div>
+  {{/if}}
+</div>

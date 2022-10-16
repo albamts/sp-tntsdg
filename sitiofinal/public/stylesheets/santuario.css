@@ -27,10 +27,35 @@
 #adopciones{
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-around;
 }
 #lugarfoto{
     width: 80vw;
+    max-width: 800px;
     margin-inline-start: 8vw;
+    border-left: 4px solid #24ca2c;
+    border-right: 4px solid #24ca2c;
+}
+.lugar{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+#staff{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+#staff #staffnos{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+.quienes{
+    margin: 16px;
+    border: 1px solid rgb(150, 150, 150);
 }
 #nota{
     height: 60vh;
@@ -70,10 +95,11 @@
 .visible .intramarco{
     display: flex;
     flex-direction: column;
-    
-    height: inherit;
+    flex-wrap: wrap;
+    justify-content: stretch;
     margin: 8px;
     padding: 20px;
+    max-height: 66vh;
     background-color: rgb(255, 255, 255);
     border: 1px solid rgba(0, 145, 101, 0.8);
 }
@@ -125,15 +151,18 @@ h1{
     -webkit-text-stroke-color: darkslategray;
 }
 a{
-    color: #00331a;
+    color: #002011;
+}
+nav #botonprincipal{
+    background-color: lemonchiffon;
 }
 nav{
     font-weight: bolder;
-    background-color: #00d169;
-    border-bottom: 1px solid rgb(174, 182, 94);
+    background-color: #24ca2c;
+    border-bottom: 1px solid rgb(61, 97, 47);
 }
 body{
-    background-color: rgb(253, 253, 186);
+    background-color: rgb(255, 255, 204);
     font-family:'Cabin', sans-serif;
     padding-bottom: 60px;
 }

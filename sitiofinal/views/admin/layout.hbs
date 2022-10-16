@@ -34,6 +34,7 @@
                             Más
                         </a>
                         <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="/noticias">Noticias</a></li>
                             <li><a class="dropdown-item" href="/nosotros">Quienes somos</a></li>
                             <li><a class="dropdown-item" href="/contacto">Contactate</a></li>
                         </ul>
@@ -53,46 +54,51 @@
             </div>
         </div>
     </nav>
+    {{#if nombre}}
+    <nav class="navbar navbar-expand-lg bg-warning bg-opacity-50">
+        {{!-- este seria un subnav de donde se maneja la pagina como administrador!!!! falta terminar--}}
+        <div class="container-fluid">            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item ps-1">
+                        {{!-- cambiar el link luego --}}
+                        <a class="nav-link active" aria-current="page" href="/">Controles</a>
+                    </li>
+                    <li class="nav-item">
+                        {{!-- cambiar el link luego --}}
+                        <a class="nav-link" href="/adopciones">Adm. Noticias</a>
+                    </li>
+                    <li class="nav-item">
+                        {{!-- cambiar el link luego --}}
+                        <a class="nav-link" href="/noticias">Adm. Adopciones</a>
+                    </li>
+                    <li class="nav-item">
+                        {{!-- cambiar el link luego --}}
+                        <a class="nav-link" href="/noticias">Adm. Apadrinados</a>
+                    </li>
+                    <li class="nav-item position-absolute end-0 me-3">
+                        <a class="nav-link bg-danger bg-opacity-75 rounded-1" href="/admin/inicio/salir">Cerrar Sesion</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    {{/if}}
 
-    <body class="m-auto">
-
+    <body>
         {{{body}}}
-        
     </body>
 
-    
 
     
     
     
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js" integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK" crossorigin="anonymous"></script>
-    <script src="/javascripts/noticias.js"></script>
-    <script>
-        //para ver detalles de los animales en adopcion
-        var addp = document.getElementById('adopciones');
-        var cual; //cual animal se pide detalle
-
-        function verDetalle(cual){
-            document.getElementById(cual).className = 'visible';
-        };
-        function cerrarDetalle(cual){
-            document.getElementById(cual).className = 'oculto';
-        };
-
-        //var selecc = document.getElementById()
-        function verNoticia(artic){
-            var notaActiva = artic
-            document.getElementById('titularMAX').innerText = artic[0]
-            document.getElementById('corporalnota').innerText = artic[2]
-            document.getElementById('fechaNota').innerText = artic[1]
-            
-        }
-
-        
-
-
-    </script>
+    
   </body>
   <footer class="fixed-bottom mt-5">Matias Albarracin @ 2022</footer>
 </html>

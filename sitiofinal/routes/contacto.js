@@ -5,7 +5,7 @@ const { route } = require('.');
 
 
 router.get('/', function(req, res, next) {
-  res.render('contacto');
+  res.render('contacto', {nombre: req.session.nombre});
 });
 
 router.post('/', async (req, res, next) => {

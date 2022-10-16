@@ -1,0 +1,15 @@
+<br>
+<p>Completar para obtener acceso.</p>
+<br>
+<form action="/admin/ingreso" method="post">
+    <label for="usuario">Usuario: </label>
+    <input type="text" name="usuario">
+    <label for="pass">Contraseña: </label>
+    <input type="password" name="pass">
+    <button type="submit">Entrar</button>
+</form>
+<div>
+    {{#if error}}
+        <p>Datos erroneos.</p>
+    {{/if}}
+</div>
