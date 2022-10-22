@@ -1,0 +1,16 @@
+
+<h1>{{title}}</h1>
+<p>Del mundo a su pantalla, con total objetividad.</p>
+
+<div class="container text-black">
+    {{#each resenas}}
+    <div class="card mb-3">
+        <div class="card-body">
+            <h3 class="card-title">Lugar: {{titulo}}</h3>
+            <p class="fs-6 text-black-50">{{tipo}}  | Autor: {{autor}} | Fecha: {{fecha}}</p>
+            <p class="fs-5">{{critica}}</p>
+            <p class="fs-6 text-warning fw-bold">Total: {{estrellas}} estrellas</p>
+        </div>
+    </div>
+    {{/each}}
+</div>

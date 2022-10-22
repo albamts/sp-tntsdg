@@ -1,0 +1,99 @@
+<div>
+    <h1 class="ms-4 mb-5">Manejo de reseñas</h1>
+</div>
+<span id="confirmacion">
+        <p class="fs-3 text-success text-center">{{exito}}</p>
+      </span>
+<div id="fichaMod" class="{{visa}}">
+    <div>
+        <h3 class="ms-4">Editar Reseña</h3>
+    </div>
+    <div id="formulario" class="mt-3">
+      <form action="/modificar/cambiar" method="post" class="form">
+        <div class="ette">
+          <input type="hidden" name="nid_n" value="{{esaResena.id_n}}">
+        </div>
+        <div class="ette mb-3">
+          <label for="ntitulo">Titulo:</label>
+          <input type="text" name="ntitulo" value="{{esaResena.titulo}}">
+        </div>
+        <div class="mb-3">
+          <label for="nautor">Autor:</label>
+          <input type="text" name="nautor" value="{{esaResena.autor}}">
+          <label for="fecha">Fecha:</label>
+          <input type="date" name="nfecha" value="{{ffecha}}">
+        </div>
+        <div class="ette mb-3">
+          <label for="ncritica">Reseña:</label>
+          <textarea name="ncritica" id="" cols="20" rows="7">{{esaResena.critica}}</textarea>
+        </div>
+        <div class="ette mb-3">
+          <label for="nestrellas">Calificacion:</label>
+          <select name="nestrellas" id="estrellas">
+            <option value="{{esaResena.estrellas}}" selected>{{esaResena.estrellas}}</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
+        </div>
+        <div class="ette mb-3">
+          <label for="ntipo">Clase de negocio:</label>
+          <select name="ntipo" id="tipo">
+            <option value="{{esaResena.tipo}}" selected>{{esaResena.tipo}}</option>
+            <option value="Resto">Resto</option>
+            <option value="Bar">Bar</option>
+            <option value="Callejero">Callejero</option>
+            <option value="Al Paso">Al Paso</option>
+            <option value="Delivery">Delivery</option>
+          </select>
+        </div>
+        <button type="submit">Guardar</button>
+    
+      </form>
+      {{#if error}}
+      <p class="text-danger">{{message}}</p>
+      {{/if}}
+    
+    </div>
+</div>
+<span class="text-middle oculto" id="exito"></span>
+<div>
+    <h3 class="ms-4">Listado de reseñas</h3>
+</div>
+<div id="tablaResenas" class="bg-white text-black">
+    <table class="table">
+  <thead>
+    <tr>
+      <th scope="col-1">#</th>
+      <th scope="col">Titulo</th>
+      <th scope="col">Tipo</th>
+      <th scope="col">Critica</th>
+      <th scope="col">Estrellas</th>
+      <th scope="col">Autor</th>
+      <th scope="col">Fecha</th>
+      <th scope="col">Acciones</th>      
+    </tr>
+  </thead>
+  <tbody>
+    {{#each resenas}}
+    <tr>
+      <th scope="row">{{id_n}}</th>
+      <td>{{titulo}}</td>
+      <td>{{tipo}}</td>
+      <td>{{critica}}</td>
+      <td>{{estrellas}}</td>
+      <td>{{autor}}</td>
+      <td>{{fecha}}</td>
+      <td>
+        {{!-- <a href="modificar/cambiar?id={{id_n}}">Editar</a> --}}
+        <a href="/modificar/cambiar/{{id_n}}">Editar</a>
+        <a href="/modificar/borrar/{{id_n}}">Borrar</a>
+      </td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>
+
+</div>

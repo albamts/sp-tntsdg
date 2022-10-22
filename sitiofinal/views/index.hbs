@@ -7,18 +7,8 @@
         <ul class="list-group list-group-flush text-muted text-truncate">
             <!-- luego van a llevar a una seccion tipo blog -->
             <li id="tituloNews" class="list-group-item bg-transparent">Ultimas Noticias:</li>
-            <li class="list-group-item ps-5 bg-transparent">
-                <a href="/noticias" onclick="verNoticia(art4)">¡Ricardo hizo una donación!</a>
-            </li>
-            <li class="list-group-item ps-5 bg-transparent">
-                <a href="/noticias" onclick="verNoticia(art3)">¡Bienvenido Lupo!</a>
-            </li>
-            <li class="list-group-item ps-5 bg-transparent">
-                <a href="/noticias" onclick="verNoticia(art2)">¡Monzo encontró hogar!</a>
-            </li>
-            <li class="list-group-item ps-5 bg-transparent">
-                <a href="/noticias" onclick="verNoticia(art1)">Campaña de vacunaciones</a>
-            </li>
-        </ul>
+            {{#each noticias}}
+            <li class="list-group-item ps-5 bg-transparent"><a href="/noticias/id/{{i_new}}">{{titulo}}</a></li>
+            {{/each}}
     </div>
 </div>

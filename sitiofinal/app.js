@@ -18,7 +18,14 @@ var adopcionesRt = require('./routes/adopciones');
 var contactoRt = require('./routes/contacto');
 var nosotrosRt = require('./routes/nosotros');
 var noticiasRt = require('./routes/noticias');
+var adopformRt = require('./routes/adopcionpedido');
 var controlRt = require('./routes/admin/control');
+var anoticiasRt = require('./routes/admin/adnoticias');
+var adadoptaRt = require('./routes/admin/adadopciones');
+var adpadrinaRt = require('./routes/admin/adapadrinos');
+var usentradadRt = require('./routes/usuario/entrada');
+var usregistrodRt = require('./routes/usuario/registro');
+var usportaldRt = require('./routes/usuario/portal');
 
 var app = express();
 
@@ -54,6 +61,21 @@ secured = async(req, res, next) => {
 
 };
 
+//esta va a ser para las userA
+securato = async(req, res, next) => {
+  try{
+    console.log(req.session.id_amigueado);
+    if(req.session.id_amigueado){
+      next();
+    } else {
+      res.redirect('/usuario/entrada');
+    }
+  } catch(error) {
+    console.log(error);
+  }
+
+};
+
 
 
 app.use('/', indexRouter);
@@ -63,8 +85,18 @@ app.use('/adopciones', adopcionesRt);
 app.use('/contacto', contactoRt);
 app.use('/nosotros', nosotrosRt);
 app.use('/noticias', noticiasRt);
+app.use('/adopcionpedido', adopformRt);
 app.use('/admin/inicio', inicioRt);
 app.use('/admin/control', secured, controlRt);
+app.use('/admin/adnoticias', secured, anoticiasRt);
+app.use('/admin/adadopciones', secured, adadoptaRt);
+app.use('/admin/adapadrinos', secured, adpadrinaRt);
+app.use('/usuario/entrada', usentradadRt);
+app.use('/usuario/registro', usregistrodRt);
+app.use('/usuario/portal', usportaldRt);
+//app.use('/usuario/portal', securato, usportaldRt);
+
+
 
 
 // catch 404 and forward to error handler

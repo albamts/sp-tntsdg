@@ -1,0 +1,60 @@
+<div>
+    <h1 class="ms-4">Agregue su Reseña</h1>
+</div>
+{{!-- OJO LOS NAME TIENEN QUE SER IGUALES A LOS CAMPOS DE LA TABLA! MIRA QUE LO MANDAS COMO OBJETO NO LE ENVIAS LAS COSAS POR SEPARADO --}}
+<div id="formulario">
+    <form action="/anadir" method="post" class="form">
+        <div class="ette mb-3">
+            <label for="titulo">Titulo:</label>
+            <input type="text" name="titulo">
+        </div>
+        <div class="mb-3">
+            <label for="autor">Autor:</label>
+            <input type="text" name="autor">
+            <label for="fecha">Fecha:</label>
+            <input type="date" name="fecha">
+        </div>
+        <div class="ette mb-3">
+            <label for="critica">Reseña:</label>
+            <textarea name="critica" id="" cols="20" rows="7"></textarea>
+        </div>
+        <label for="estrellas">Calificacion:</label>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="estrellas" id="festrellas1" value="1">
+            <label class="form-check-label" for="festrellas1">1</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="estrellas" id="festrellas2" value="2">
+            <label class="form-check-label" for="festrellas2">2</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="estrellas" id="festrellas3" value="3">
+            <label class="form-check-label" for="festrellas3">3</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="estrellas" id="festrellas4" value="4">
+            <label class="form-check-label" for="festrellas4">4</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="estrellas" id="festrellas5" value="5">
+            <label class="form-check-label" for="festrellas5">5</label>
+        </div>
+        <div class="ette mb-3">
+            <label for="tipo">Clase de negocio:</label>
+            <select name="tipo" id="tipo">
+                <option value="Resto">Resto</option>
+                <option value="Bar">Bar</option>
+                <option value="Callejero">Callejero</option>
+                <option value="Al Paso">Al Paso</option>
+                <option value="Delivery">Delivery</option>
+            </select>
+        </div>
+        <button type="submit">Guardar</button>
+
+    </form>
+    <span id="confirmacion"><p></p></span>
+    {{#if error}}
+    <p class="text-danger">{{message}}</p>
+    {{/if}}
+
+</div>

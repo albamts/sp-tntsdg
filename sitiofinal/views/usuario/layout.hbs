@@ -10,6 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cabin:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/stylesheets/santuario.css" />
+    <link rel="stylesheet" href="/stylesheets/portal.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
   </head>
   <body>
@@ -39,20 +40,15 @@
                             <li><a class="dropdown-item" href="/contacto">Contactate</a></li>
                         </ul>
                     </li>
-                    {{#if nombre}}
+                    {{#if userA}}
                     <li class="nav-item position-absolute end-0 me-3">
                         {{!-- actualizalo luego!!!!!!!!! --}}
-                        <a class="nav-link bg-info bg-opacity-75 rounded-1" href="/admin/control"><i class="bi bi-person-circle pe-1"></i>{{nombre}}</a>
-                    </li>
-                    {{else if userA}}
-                    <li class="nav-item position-absolute end-0 me-3">
-                        {{!-- actualizalo luego!!!!!!!!! --}}
-                        <a class="nav-link bg-info bg-opacity-75 rounded-1" href="/usuario/portal"><i class="bi bi-person-circle pe-1"></i>{{userA}}</a>
+                        <a class="nav-link bg-info bg-opacity-75 rounded-1" href="/admin/control"><i class="bi bi-person-circle pe-1"></i>{{userA}}</a>
                     </li>
                     {{else}}
                     <li class="nav-item position-absolute end-0 me-3">
                         {{!-- actualizalo luego!!!!!!!!! --}}
-                        <a class="nav-link bg-info bg-opacity-75 rounded-1" href="/usuario/entrada">Ingresar</a>
+                        <a class="nav-link bg-info bg-opacity-75 rounded-1" href="/admin/inicio">Ingresar</a>
                     </li>
                     {{/if}}
                 </ul>
@@ -63,7 +59,6 @@
     <body class="m-auto">
 
         {{{body}}}
-        
         
     </body>
 
@@ -76,9 +71,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js" integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK" crossorigin="anonymous"></script>
     <script src="/javascripts/noticias.js"></script>
     <script>
-        //para ver detalles de los animales en adopcion
-        var addp = document.getElementById('adopciones');
-        var cual; //cual animal se pide detalle
 
         function verDetalle(cual){
             document.getElementById(cual).className = 'visible';
@@ -87,18 +79,8 @@
             document.getElementById(cual).className = 'oculto';
         };
 
-        
-
-        
-
 
     </script>
   </body>
-    <footer class="row fixed-bottom mt-5">
-        <p class="col-10">Matias Albarracin @ 2022</p>
-        <div id="accesoAdm" class="col-2">
-                <i class="bi bi-gear-wide-connected"></i>
-                <a class="text-white" href="/admin/inicio">Administrar</a>
-        </div>
-    </footer>
+  <footer class="fixed-bottom mt-5">Matias Albarracin @ 2022</footer>
 </html>

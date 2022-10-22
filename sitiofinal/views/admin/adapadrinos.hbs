@@ -1,0 +1,48 @@
+<div class="m-3 p-2">
+    <h5 style="color: rgb(255, 101, 41);">Adopciones y Adoptados</h5>
+    <div>
+        <p>Desde esta seccion podras ver y administrar todos los animales que estan disponibles para ser patrocinados por usuarios del sitio.</p>
+    </div>
+    <h5 style="color: rgb(255, 101, 41);">Apadrinados</h5>
+    <button type="submit" class="btn btn-warning">Agregar Animal</button>
+    <div>
+        {{!-- (tabla con todos los animales apadrinados) --}}
+        {{!-- tiene los botones: agregar noticia - quitar - editar --}}
+    </div>
+    <h5 style="color: rgb(255, 101, 41);">Novedades Apadrinados</h5>
+    <div>
+        {{!-- aca se elige de cual queres ver las notitas, y luego rellena la tabla de abajo --}}
+        <form action="">
+            <label for="elegiAP">Seleccione el animal:</label>
+            <select name="elegiAP" id="elegiAP">
+                {{#each apadrinado}}
+                <option value="{{i_ser}}">{{apadrinado}}</option>
+                {{/each}}
+            </select>
+            <button type="submit">Mostrar Notas</button>
+        </form>
+    </div>
+    <div>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col" class="col-9">Nota</th>
+                    <th scope="col">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each seleccionApadrinado}}
+                <tr>
+                    {{!-- tabla padrinews --}}
+                    <th scope="row">{{i_snew}}</th>
+                    <td>{{noticia}}</td>
+                    <td>
+                        <a href="/">Eliminar</a>
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+</div>

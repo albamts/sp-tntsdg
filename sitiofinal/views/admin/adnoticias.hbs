@@ -1,0 +1,32 @@
+<div class="m-3 p-2">
+    <h5 style="color: rgb(255, 101, 41);">Administrar Noticias</h5>
+    <button type="submit" class="btn btn-warning">Agregar Noticia</button>
+    <div>
+        <table class="table">
+            <thead>
+                <tr class="bg-warning">
+                    <th scope="col-1">Nº</th>
+                    <th scope="col-2">Fecha</th>
+                    <th scope="col-4">Titulo</th>
+                    <th scope="col-2">Nota</th>
+                    <th scope="col-2">Cambiar</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each noticias}}
+                <tr>
+                    <th scope="row">{{i_new}}</th>
+                    <td>{{fecha}}</td>
+                    <td>{{titulo}}</td>
+                    <td>{{nota}}</td>
+                    <td>
+                        <a href="#" class="text-success">Editar</a><br>
+                        {{!-- le envias que variable con el handlebars --}}
+                        <a href="/admin/adnoticias/borrar/{{i_new}}" class="text-danger">Borrar</a>
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+</div>

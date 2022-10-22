@@ -42,6 +42,12 @@
     flex-wrap: wrap;
     justify-content: space-around;
 }
+#titularMAX {
+    color: rgb(214, 96, 0);
+    font-size:x-large;
+    font-weight: 600;
+    text-decoration: underline solid;
+}
 #staff{
     display: flex;
     flex-direction: column;
@@ -52,6 +58,9 @@
     flex-direction: row;
     justify-content: space-around;
     flex-wrap: wrap;
+}
+.material-symbols-outlined{
+    vertical-align: text-bottom;
 }
 .quienes{
     margin: 16px;
@@ -171,4 +180,9 @@ footer{
     background-color: rgb(90, 124, 124);
     text-align: center;
     font-size: smaller;
+    max-height: 20px;
+}
+footer #accesoAdm{
+    display: flex;
+    flex-direction: row;
 }

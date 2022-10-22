@@ -1,0 +1,91 @@
+<div class="m-3 p-2">
+    <h5 style="color: rgb(255, 101, 41);">Adopciones y Adoptados</h5>
+    <div>
+        <p>Desde esta seccion podras ver y administrar tanto los animales en adopcion como los que ya han sido adoptados y sus familias.</p>
+    </div>
+    <h5 style="color: rgb(255, 101, 41);">En Adopcion</h5>
+    <button type="submit" class="btn btn-warning">Agregar Mascota</button>
+    <div>
+        <table class="table table-bordered" id="adoptableT">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Especie</th>
+                    <th scope="col">Edad</th>
+                    <th scope="col">Descripcion</th>
+                    <th scope="col">Apto Ñinos</th>
+                    <th scope="col">Apto Animales</th>
+                    <th scope="col">Salud</th>
+                    <th scope="col">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each adoptable}}
+                <tr>
+                    <th scope="row">{{i_mas}}</th>
+                    <td>{{nombre}}</td>
+                    <td>{{especie}}</td>
+                    <td>{{edad}}</td>
+                    <td>{{descripcion}}</td>
+                    <td>{{chicos}}</td>
+                    <td>{{animales}}</td>
+                    <td>{{salud}}</td>
+                    <td>
+                        <a href="">Editar</a>
+                        <a href="">Adoptado</a>
+                        <a href="">Quitar</a>
+                    </td>
+                </tr>
+                {{!-- (tabla adoptciones con todos los bicho que hay para adoptar) --}}
+                {{!-- tiene los botocones: quitar - adoptado - editar --}}
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+    <h5 style="color: rgb(255, 101, 41);">Adoptados</h5>
+    <div>
+        <table class="table table-bordered" id="adoptadosT">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Apellido</th>
+                    <th scope="col">Celular</th>
+                    <th scope="col">Direccion</th>
+                    <th scope="col">Celular2</th>
+                    <th scope="col">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{!-- (tabla adoptciones con todos los bichos ya adoptados y quien los adopto) --}}
+                {{!-- tiene los botocones: quitar - editar --}}
+                {{!-- Son dos filas por entrada: la primera fila es los datos del adoptante
+                la 2da fila es los datos del animal --}}
+                {{#each familia}}
+                <tr class="table-info">
+                    <th scope="row">{{i_fam}}</th>
+                    <td>{{famnombre}}</td>
+                    <td>{{apellido}}</td>
+                    <td>{{celular}}</td>
+                    <td>{{direccion}}</td>
+                    <td>{{celularalt}}</td>
+                    <td>
+                        <a href="">Editar</a>
+                        <a href="">Quitar</a>
+                    </td>
+                </tr>
+                {{!-- aca tendria que levantar el asociado, pero veremo --}}
+                <tr class="table-primary">
+                    <th scope="row">{{i_mas}}</th>
+                    <td>{{nombre}}</td>
+                    <td>{{especie}}</td>
+                    <td>{{edad}}</td>
+                    <td colspan="2">{{descripcion}}</td>
+                    <td>{{salud}}</td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+</div>

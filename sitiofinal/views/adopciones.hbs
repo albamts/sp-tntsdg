@@ -4,6 +4,19 @@
 <!-- la seccion de adopciones -->
 <div id="adopciones" class="m-3 gap-3 seccione">
     <!-- la idea es luego hacer click en los nombres y que abra una descripcion mas detallada -->
+    {{#each adoptable}}
+    <div class="card rounded-0" style="width: 18rem;">
+        {{!-- y como se ponen los thumbs huuuh --}}
+        <img src="/images/{{i_mas}}_th.jpg" class="card-img-top" alt="{{nombre}}">
+        <div class="card-body">
+            <button type="button" class="b-adopt btn btn-outline-success card-title fw-bold" id="a{{i_mas}}"
+                onclick="verDetalle('d{{i_mas}}')" style="width: 160px;">{{nombre}}</button>
+            <p class="card-text">{{especie}}, {{edad}}</p>
+            <p class="card-text text-success fw-light">{{descripcion}}</p>
+        </div>
+    </div>
+    {{/each}}
+    {{!-- los viejos, por las dudas los dejo hasta terminar el populating --}}
     <div class="card rounded-0" style="width: 18rem;">
         <img src="/images/adop-1_th.jpg" class="card-img-top" alt="lara">
         <div class="card-body">
@@ -55,6 +68,49 @@
 </div>
 <!-- ACA VAN Las tarjetas de Adopciones -->
 <div id="detallesAdoptivos">
+    {{!-- este tendria que armarse para abrir al elegir arriba --}}
+    {{#each adoptable}}
+    <div id="d{{i_mas}}" class="oculto">
+        <div class="titulo">
+            <strong class="me-auto fw-semibold">{{nombre}}</strong>
+            <button type="button" class="btn-close fs-5" aria-label="Cerrar" onclick="cerrarDetalle('d{{i_mas}}')"></button>
+        </div>
+        <div class="intramarco text-wrap">
+            <div class="row">
+                {{!-- como mierda van incrustadas las imagenes desde las tablas? fijate macho --}}
+                <div class="col-5"><img src="/images/{{adop-1}}.jpg" alt="{{nombre}}, vista completa" class="img-fluid float-end"
+                        style="max-height: 60vh;"></div>
+                <div class="col-6">
+                    <div class="row-2"><small>{{especie}}, {{edad}}</small></div>
+                    <div class="row-6">
+                        <p>{{descripcion}}</p>
+                    </div>
+                    <div class="row-4">
+                        <p>
+                            {{#if ninios}}
+                            <span class="text-success">Puede convivir con niños.</span>
+                            {{else}}
+                            <span class="text-danger">No apto para casas con niños.</span>
+                            {{/if}}
+                        </p>
+                        <p>
+                            {{#if animales}}
+                            <span class="text-success">Puede convivir con otros animales.</span>
+                            {{else}}
+                            <span class="text-danger">No apto para casas con otros animales.</span>
+                            {{/if}}
+                        </p>
+                        <p>
+                            {{#if salud}}
+                            <span class="text-warning">{{salud}}</span>
+                            {{/if}}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{!-- estos son los viejos hasta que lo arme bien --}}
     <div id="dLara" class="oculto">
         <div class="titulo">
             <strong class="me-auto fw-semibold">Lara</strong>
