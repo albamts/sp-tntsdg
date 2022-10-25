@@ -12,7 +12,34 @@
 </div>
 {{!-- aca van los apadrinados --}}
 <div id="apadrinados">
-{{!-- {{#each i_ser}} --}}
+    {{#each misApadrinados}}
+    <div id="patroCard" class="row rounded-2 bg-white">
+        <div id="apaTitle" class="row-2">
+            <div class="col-11 fs-3 fw-bold">
+                <p class="m-0 text-white">{{nombre}}, {{especie}}</p>
+            </div>
+            <div class="col">
+                <a href="/" class="end-0 text-danger">Quitar</a>
+            </div>
+        </div>
+        <div class="row p-0 m-0">
+            <div id="apaFoto" class="col m-0 float-star">
+                <img src="{{{foto_i}}}" class="img-fluid" alt="test">
+            </div>
+            <div id="apaNotis" class="col m-0">
+                <ul class="list-group list-group-flush y-fill">
+                    {{!-- {{#each notisApa}}
+                    <li class="list-group-item nats">
+                        <i class="bi bi-chat-quote"></i>
+                        {{noticia}}
+                    </li>
+                    {{/each}} --}}
+                </ul>
+            </div>
+        </div>
+    </div>
+    {{/each}}
+    {{!-- {{#each i_ser}} --}}
     <div id="patroCard" class="row rounded-2 bg-white">
         <div id="apaTitle" class="row-2">
             <div class="col-11 fs-3 fw-bold">
@@ -28,6 +55,8 @@
             </div>
             <div id="apaNotis" class="col m-0 d-flex align-items-stretch">
                 {{!-- {{#each annoti}} --}}
+                {{!-- fijate como es para text-warping test truncation en el bootstrap --}}
+                {{!-- le puse a las noticias un max lenght de 46 caracteres --}}
                 <ul class="list-group list-group-flush flex-fill">
                     <li class="list-group-item nats">
                         <i class="bi bi-chat-quote"></i>
@@ -41,7 +70,7 @@
             </div>
         </div>
     </div>
-{{!-- {{/each}} --}}
+    {{!-- {{/each}} --}}
     <div id="patroCard" class="row rounded-2 bg-white">
         <div id="apaTitle" class="row-2">
             <div class="col-11 fs-3 fw-bold">

@@ -1,0 +1,72 @@
+<div id="exitoagregado" class="text-center">{{mensaje}}</div>
+{{!-- andando por ahora yey --}}
+
+<div id="sumarMascota">
+    <div class="card card-body m-5">
+        <form action="/admin/adnovamascota/agregarmas" method="post" enctype="multipart/form-data">
+            <div class="mb-3">
+                <h3>Añadir nuevo animal para adopción</h3>
+            </div>
+            <div class="mb-3">
+                <label for="nombre" class="form-label">Nombre:</label>
+                <input type="text" class="form-control" id="FormName" name="nombre" maxlength="60" required>
+            </div>
+            <div class="mb-3">
+                <label for="especie" class="form-label">Especie:</label>
+                <input type="text" class="form-control" id="FormEsp" name="especie" maxlength="60"
+                    required>
+            </div>
+            <div class="mb-3">
+                <label for="edad" class="form-label">Edad aprox.:</label>
+                <input type="text" class="form-control" id="FormEdad" name="edad" maxlength="40"
+                    required>
+            </div>
+            <div class="mb-3">
+                <label for="descripcion" class="form-label">Breve descripcion:</label>
+                <textarea class="form-control" name="descripcion" id="FormDesc" cols="30" rows="4" maxlength="180" required></textarea>
+            </div>
+            <div class="mb-3">
+                <label for="chicos" class="form-label">Puede convivir con niños:</label>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="chicos" id="chicosSi" value="1" checked>
+                    <label class="form-check-label" for="chicosSi">
+                        Si
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="chicos" id="chicosNo" value="0">
+                    <label class="form-check-label" for="chicosNo">
+                        No
+                    </label>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="animales" class="form-label">Puede convivir con otros animales:</label>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="animales" id="animalesSi" value="1" checked>
+                    <label class="form-check-label" for="animalesSi">
+                        Si
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="animales" id="animalesNo" value="0">
+                    <label class="form-check-label" for="animalesNo">
+                        No
+                    </label>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="salud" class="form-label">Problemas de salud:</label>
+                <input type="text" class="form-control" id="FormSalud" name="salud" value="Sin problemas de salud." maxlength="110" required>
+            </div>
+            <div class="mb-3">
+                <label for="imagen" class="form-label">Agregar foto:</label>
+                {{!-- subir foto --}}
+                <input type="file" name="imagen" id="FormFoto">
+            </div>
+            <div class="ps-5">
+                <button type="submit" class="btn btn-success">Agregar a adoptables</button>
+            </div>
+        </form>
+    </div>
+</div>

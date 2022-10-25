@@ -1,3 +1,6 @@
+<div class="col-12 text-center">
+                <p class="fs-2 fw-bold text-success ps-1">Registrate para poder comenzar a apadrinar a los residentes del santuario</p>
+            </div>
 <div id="marcoReg">
     <div id="registrar" class="container p-6 rounded-1">
         <div class="titulo mt-3 text-center">
@@ -9,16 +12,16 @@
                     <div class="row pb-3">
                         <label for="usuarioValidado" class="fs-6 text-black-50">Utilice solo letras y numeros</label>
                         <label for="usuarioValidado" class="form-label">Usuario:</label>
-                        <input type="text" class="form-control" id="usuarioValidado" value="" name="nuevoUser" required>
+                        <input type="text" class="form-control" id="usuarioValidado" value="" maxlength="90" name="nuevoUser" required>
                         {{!-- <label for="usuarioValidado" class="fs-6 text-black-50">Solo letras y numeros</label> --}}
                     </div>
                     <div class="row pb-3">
                         <label for="claveValidada" class="form-label">Clave:</label>
-                        <input type="password" class="form-control" id="claveValidada" value="" name="nuevaClave" required>
+                        <input type="password" class="form-control" id="claveValidada" value="" maxlength="90" name="nuevaClave" required>
                     </div>
                     <div class="row pb-3">
                         <label for="claveValidada" class="form-label">Repetir Clave:</label>
-                        <input type="password" class="form-control" id="claveValidada" value="" name="nuevaRClave" required>
+                        <input type="password" class="form-control" id="claveValidada" value="" maxlength="90" name="nuevaRClave" required>
                     </div>
                     <div class="row">
                         <button class="btn btn-warning" type="submit">Registrar</button>

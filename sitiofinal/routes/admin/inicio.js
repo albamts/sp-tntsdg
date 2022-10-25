@@ -25,7 +25,7 @@ router.post('/', async (req, res, next) => {
 })
 
 router.get('/', function (req, res, next) {
-    if (req.session.userA!=""){
+    if (req.session.userA){
         res.render('usuario/inicio', {
             layout: 'usuario/layout',
             userA: req.session.userA,

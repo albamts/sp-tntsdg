@@ -1,0 +1,36 @@
+<div id="exitoagregado" class="text-center">{{mensaje}}</div>
+{{#if error}}
+<div class="fs-3 text-danger">{{message}}</div>
+{{/if}}
+
+<div id="sumarPadrino">
+    <div class="card card-body m-5">
+        <form action="/admin/adnovaapadrino/agregarapa" method="post" enctype="multipart/form-data">
+            <div class="mb-3">
+                <h3>Añadir nuevo animal para apadrinar</h3>
+            </div>
+            <div class="mb-3">
+                <label for="nombre" class="form-label">Nombre:</label>
+                <input type="text" class="form-control" id="FormName" maxlength="60" name="nombre" required>
+            </div>
+            <div class="mb-3">
+                <label for="especie" class="form-label">Especie:</label>
+                <input type="text" class="form-control" id="FormEsp" maxlength="80" name="especie"
+                    required>
+            </div>
+            <div class="mb-3">
+                <label for="adicion" class="form-label">Fecha de adición:</label>
+                <input type="date" class="form-control" id="FormEdad" name="adicion"
+                    required>
+            </div>
+            <div class="mb-3">
+                <label for="imagen" class="form-label">Agregar foto:</label>
+                {{!-- subir foto --}}
+                <input type="file" name="imagen" id="FormFoto">
+            </div>
+            <div class="ps-5">
+                <button type="submit" class="btn btn-success">Agregar a apadrinables</button>
+            </div>
+        </form>
+    </div>
+</div>

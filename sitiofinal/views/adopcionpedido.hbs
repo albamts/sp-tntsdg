@@ -1,34 +1,39 @@
 {{!-- esta es la etiqueta que daba el enviado con exito, fijate de moverla o modificarla!! --}}
-<h3 class="text-center">{{{enviado}}}</h3>
+<h3 class="text-center m-3 fs-4">{{{enviado}}}</h3>
 {{!-- ahora este si es el formulario --}}
-<div class="card card-body m-3">
-    <form action="contacto" method="post">
+
+<div class="card card-body m-5">
+    <form action="/adopcionpedido" method="post">
         <div class="mb-3">
-            <h3>Formulario para pedido de adopcion de {{i_mas nombre}}</h3>
-            <p>¡Atencion! Enviar este formulario no garantiza la adopcion del animal, pero nos alertará de tu interes en darle un hogar. Una vez enviado nos comunicaremos pronto con vos para arreglar todos los detalles.</p>
+            <h3>Formulario para pedido de adopcion de {{nMascota}}</h3>
+            <input type="hidden" name="iMascota" value="{{idMascota}}">
+            <input type="hidden" name="nMascota" value="{{nMascota}}">
+            <p><span class="text-primary fw-bold">¡Atencion!</span> Enviar este formulario no garantiza la adopcion del animal, pero nos alertará de tu interes en darle un hogar. Una vez enviado nos comunicaremos pronto con vos para arreglar todos los detalles.</p>
         </div>
         <div class="mb-3">
             <label for="nombre" class="form-label">Nombre:</label>
-            <input type="text" class="form-control" id="FormName" placeholder="Nombre" name="nombre">
+            <input type="text" class="form-control" id="FormName" placeholder="Nombre" name="nombre" maxlength="90" required>
         </div>
         <div class="mb-3">
-            <label for="nombre" class="form-label">Apellido:</label>
-            <input type="text" class="form-control" id="FormSurName" placeholder="Apellido" name="apellido">
+            <label for="apellido" class="form-label">Apellido:</label>
+            <input type="text" class="form-control" id="FormSurName" placeholder="Apellido" name="apellido" maxlength="90" required>
         </div>
         <div class="mb-3">
             <label for="telefono" class="form-label">Telefono:</label>
-            <input type="tel" class="form-control" id="FormTel" placeholder="Cod Area + Numero sin 15" name="telefono">
+            <input type="tel" class="form-control" id="FormTel" placeholder="Cod Area + Numero sin 15" name="telefono" maxlength="90" required>
         </div>
         <div class="mb-3">
-            <label for="direccion" class="form-label">Correo Electronico:</label>
-            <input type="direccion" class="form-control" id="FormDire" placeholder="Calle 123, Ciudad" name="direccion">
+            <label for="direccion" class="form-label">Direccion:</label>
+            <input type="text" class="form-control" id="FormDire" placeholder="Calle 123, Ciudad" name="direccion" maxlength="180">
         </div>
         <div class="mb-3">
             <label for="mensaje" class="form-label">Mensaje:</label>
-            <textarea class="form-control" id="FromMensaje" rows="3" name="mensaje">
-                ¡Hola! Me interesa adoptar a {{nombre}}, espero su llamada!
+            <textarea class="form-control" id="FromMensaje" rows="3" name="mensaje" maxlength="600">
+                ¡Hola! Me interesa adoptar a {{nMascota}}, espero su llamada!
             </textarea>
         </div>
-        <button type="submit" class="btn btn-success container">Enviar</button>
+        <div class="ps-5">
+            <button type="submit" class="btn btn-success">Enviar mensaje</button>
+        </div>
     </form>
 </div>

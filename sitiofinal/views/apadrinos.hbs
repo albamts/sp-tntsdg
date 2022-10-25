@@ -1,15 +1,31 @@
-{{!-- aca va la seccione --}}
+<div class="sectionario">
+    <h2 class="ps-4">Residentes permanentes</h2>
+</div>
 {{!-- esta la intro --}}
 <div>
-    <p>
+    <p class="m-5 ps-3 pe-3">
         ¿Te gustaria colaborar de forma mas dinamica con nuestro santuario? Volvete patrocinador de alguno (o algunos!) de nuestros residentes permanentes. No solo 
-        ayudas monetariamente a darles lo mejor, sino que ganas acceso a reportes detallados de como los trata la vida en el campo. ¡El unico reporte estilo paparazzi
+        ayudas a darles lo mejor, sino que ganas acceso a reportes detallados de como los trata la vida en el campo. ¡El unico reporte estilo paparazzi
         hecho sin maltrato animal!
     </p>
 </div>
-{{!-- aca va la grilla con los animales a elegir para patrocinar --}}
-{{!-- FIJATE SI ESTO NO VA EN LA SUBCARPETA USUARIOS!!!!! --}}
-{{!-- (CAPAZ QUE DOS VERSIONES, UNA PARA INGRESADOS Y OTRA CON EL LIN PARA REGISTRARSE???) --}}
-<div>
-    
+<div class="bodApadrinados">
+    {{#each apadrinados}}
+    <div class="patrocinCard row rounded-2 bg-none border-0">
+        <div class="apadriTitle row-2">
+            <div class="col-11 fs-3 fw-bold">
+                <p class="m-0 text-white">{{nombre}}, <span class="fs-5">{{especie}}</span></p>
+                {{!-- <p class="m-0 text-white">{{nombre}}, {{especie}}</p> --}}
+            </div>
+        </div>
+        <div class="apadriCorpo row p-0 m-0 g-0">
+            <div class="apadriFoto m-0 float-star">
+                <img src="{{imagen}}" class="img-fluid" alt="test">   
+            </div>
+            <div>
+                <a href="/apadrinos/link/{{i_ser}}" class="btn btn-success" style="width: inherit;">Apadrinar</a>
+            </div>
+        </div>
+    </div>
+    {{/each}}
 </div>

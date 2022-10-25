@@ -6,8 +6,7 @@
     <!-- la idea es luego hacer click en los nombres y que abra una descripcion mas detallada -->
     {{#each adoptable}}
     <div class="card rounded-0" style="width: 18rem;">
-        {{!-- y como se ponen los thumbs huuuh --}}
-        <img src="/images/{{i_mas}}_th.jpg" class="card-img-top" alt="{{nombre}}">
+        <img src="{{{imagen}}}" class="card-img-top rounded-0" alt="{{nombre}}">
         <div class="card-body">
             <button type="button" class="b-adopt btn btn-outline-success card-title fw-bold" id="a{{i_mas}}"
                 onclick="verDetalle('d{{i_mas}}')" style="width: 160px;">{{nombre}}</button>
@@ -16,55 +15,6 @@
         </div>
     </div>
     {{/each}}
-    {{!-- los viejos, por las dudas los dejo hasta terminar el populating --}}
-    <div class="card rounded-0" style="width: 18rem;">
-        <img src="/images/adop-1_th.jpg" class="card-img-top" alt="lara">
-        <div class="card-body">
-            <button type="button" class="b-adopt btn btn-outline-success card-title fw-bold" id="aLara"
-                onclick="verDetalle('dLara')" style="width: 160px;">Lara</button>
-            <p class="card-text">Perrita de unos 3 años.</p>
-            <p class="card-text text-success fw-light">Energetica. Buena con chicos y mascotas.</p>
-        </div>
-    </div>
-    <div class="card rounded-0" style="width: 18rem;">
-        <img src="/images/adop-2_th.jpg" class="card-img-top" alt="coco">
-        <div class="card-body">
-            <button type="button" class="b-adopt btn btn-outline-success card-title fw-bold" id="aCoco"
-                onclick="verDetalle('dCoco')" style="width: 160px;">Coco</button>
-            <p class="card-text">Gato de 1 año.</p>
-            <p class="card-text text-success fw-light">Cariñoso. Bueno con chicos.</p>
-            <p class="card-text text-warning fw-light">Problemas renales.</p>
-        </div>
-    </div>
-    <div class="card rounded-0" style="width: 18rem;">
-        <img src="/images/adop-3_th.jpg" class="card-img-top" alt="lupo">
-        <div class="card-body">
-            <button type="button" class="b-adopt btn btn-outline-success card-title fw-bold" id="aLupo"
-                onclick="verDetalle('dLupo')" style="width: 160px;">Lupo</button>
-            <p class="card-text">Perro de unos 5 años.</p>
-            <p class="card-text text-success fw-light">Tranquilo. Bueno con animales.</p>
-            <p class="card-text text-warning fw-light">Niños lo ponen nervioso.</p>
-        </div>
-    </div>
-    <div class="card rounded-0" style="width: 18rem;">
-        <img src="/images/adop-4_th.jpg" class="card-img-top" alt="tito">
-        <div class="card-body">
-            <button type="button" class="b-adopt btn btn-outline-success card-title fw-bold" id="aTito"
-                onclick="verDetalle('dTito')" style="width: 160px;">Tito</button>
-            <p class="card-text">Perro de unos 4 meses.</p>
-            <p class="card-text text-success fw-light">Va a ser tamaño chico. Sano y energetico.</p>
-            <p class="card-text text-warning fw-light">Aun no esta en adopción.</p>
-        </div>
-    </div>
-    <div class="card rounded-0" style="width: 18rem;">
-        <img src="/images/adop-5_th.jpg" class="card-img-top" alt="felicia">
-        <div class="card-body">
-            <button type="button" class="b-adopt btn btn-outline-success card-title fw-bold" id="aFelicia"
-                onclick="verDetalle('dFelicia')" style="width: 160px;">Felicia</button>
-            <p class="card-text">Gata de unos 6 años.</p>
-            <p class="card-text text-success fw-light">Independiente, buen temperamento. No teme a otros animales.</p>
-        </div>
-    </div>
 </div>
 <!-- ACA VAN Las tarjetas de Adopciones -->
 <div id="detallesAdoptivos">
@@ -73,21 +23,21 @@
     <div id="d{{i_mas}}" class="oculto">
         <div class="titulo">
             <strong class="me-auto fw-semibold">{{nombre}}</strong>
-            <button type="button" class="btn-close fs-5" aria-label="Cerrar" onclick="cerrarDetalle('d{{i_mas}}')"></button>
+            <button type="button" class="btn-close fs-5" aria-label="Cerrar"
+                onclick="cerrarDetalle('d{{i_mas}}')"></button>
         </div>
-        <div class="intramarco text-wrap">
+        <div class="intramarco text-wrap rounded-0">
             <div class="row">
-                {{!-- como mierda van incrustadas las imagenes desde las tablas? fijate macho --}}
-                <div class="col-5"><img src="/images/{{adop-1}}.jpg" alt="{{nombre}}, vista completa" class="img-fluid float-end"
-                        style="max-height: 60vh;"></div>
+                <div class="col-5"><img src="{{{bigimagen}}}" alt="{{nombre}}, vista completa"
+                        class="img-fluid float-end"></div>
                 <div class="col-6">
                     <div class="row-2"><small>{{especie}}, {{edad}}</small></div>
                     <div class="row-6">
                         <p>{{descripcion}}</p>
                     </div>
-                    <div class="row-4">
+                    <div class="row-3">
                         <p>
-                            {{#if ninios}}
+                            {{#if chicos}}
                             <span class="text-success">Puede convivir con niños.</span>
                             {{else}}
                             <span class="text-danger">No apto para casas con niños.</span>
@@ -106,121 +56,12 @@
                             {{/if}}
                         </p>
                     </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    {{!-- estos son los viejos hasta que lo arme bien --}}
-    <div id="dLara" class="oculto">
-        <div class="titulo">
-            <strong class="me-auto fw-semibold">Lara</strong>
-            <button type="button" class="btn-close fs-5" aria-label="Cerrar" onclick="cerrarDetalle('dLara')"></button>
-        </div>
-        <div class="intramarco text-wrap">
-            <div class="row">
-                <div class="col-5"><img src="/images/adop-1.jpg" alt="Lara, vista completa" class="img-fluid float-end"
-                        style="max-height: 60vh;"></div>
-                <div class="col-6">
-                    <div class="row-2"><small>Mestiza</small></div>
-                    <div class="row-7">
-                        <p>Ella es Lara, tiene unos 3 años. Muy energetica, necesita que la saquen a pasear una vez por dia.
-                            <br>Se
-                            lleva bien con chicos y con otros perros.</p>
-                    </div>
-                    <div class="row-2"></div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div id="dCoco" class="oculto">
-        <div class="titulo">
-            <strong class="me-auto fw-semibold">Coco</strong>
-            <button type="button" class="btn-close fs-5" aria-label="Cerrar" onclick="cerrarDetalle('dCoco')"></button>
-        </div>
-        <div class="intramarco text-wrap">
-            <div class="row">
-                <div class="col-5">
-                    <img src="/images/adop-2.jpg" alt="Coco, vista completa" class="img-fluid float-end" style="max-height: 60vh;">
-                </div>
-                <div class="col-6">
-                    <div class="row-2"><small>Mestizo</small></div>
-                    <div class="row-7">
-                        <p>Él es Coco, tiene 1 año. Tranquilo, le gusta pasear pero se queda siempre cerca de uno. Le tiene miedo a
-                            los perros, pero tiene paciencia con los chicos. Mimoso</p>
-                    </div>
-                    <div class="row-2">
-                        <p class="text-primary">Ojo: Coco tiene problemas de riñon y come alimento especial.</p>
+                    <div class="row">
+                        <a href="/adopciones/link/{{i_mas}}" class="btn btn-success" style="width: inherit;">Quiero adoptar</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <div id="dLupo" class="oculto">
-        <div class="titulo">
-            <strong class="me-auto fw-semibold">Lupo</strong>
-            <button type="button" class="btn-close fs-5" aria-label="Cerrar" onclick="cerrarDetalle('dLupo')"></button>
-        </div>
-        <div class="intramarco text-wrap">
-            <div class="row">
-                <div class="col-5"><img src="/images/adop-3.jpg" alt="Lupo, vista completa" class="img-fluid float-end"
-                        style="max-height: 60vh;"></div>
-                <div class="col-6">
-                    <div class="row-2"><small>Mestizo</small></div>
-                    <div class="row-7">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis, natus facere? Asperiores, facere
-                            ad.
-                            Officia assumenda iure porro at fugit quos eveniet, dolorem, minima, adipisci voluptatem dolore
-                            nulla
-                            nam sed.</p>
-                    </div>
-                    <div class="row-2"></div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div id="dTito" class="oculto">
-        <div class="titulo">
-            <strong class="me-auto fw-semibold">Tito</strong>
-            <button type="button" class="btn-close fs-5" aria-label="Cerrar" onclick="cerrarDetalle('dTito')"></button>
-        </div>
-        <div class="intramarco text-wrap">
-            <div class="row">
-                <div class="col-5"><img src="/images/adop-4.jpg" alt="Tito, vista completa" class="img-fluid float-end"
-                        style="max-height: 60vh;"></div>
-                <div class="col-6">
-                    <div class="row-2"><small>Mestizo</small></div>
-                    <div class="row-7">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium soluta, ipsa ad facere quidem
-                            molestias eos, unde sed repellat iusto animi odit ducimus, placeat enim officiis voluptas voluptate
-                            nisi
-                            totam!</p>
-                    </div>
-                    <div class="row-2"></div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div id="dFelicia" class="oculto">
-        <div class="titulo">
-            <strong class="me-auto fw-semibold">Felicia</strong>
-            <button type="button" class="btn-close fs-5" aria-label="Cerrar"
-                onclick="cerrarDetalle('dFelicia')"></button>
-        </div>
-        <div class="intramarco text-wrap">
-            <div class="row">
-                <div class="col-5"><img src="/images/adop-5.jpg" alt="Felicia, vista completa" class="img-fluid float-end"
-                        style="max-height: 60vh;"></div>
-                <div class="col-6">
-                    <div class="row-2"><small>Mestiza</small></div>
-                    <div class="row-7">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis iusto ad ab tempora explicabo illo
-                            ratione. Repellendus sunt cum nostrum velit eius dignissimos cumque? Dignissimos blanditiis maxime
-                            quod
-                            nihil natus.</p>
-                    </div>
-                    <div class="row-2"></div>
-                </div>
-            </div>
-        </div>
-    </div>
+    {{/each}}
 </div>

@@ -101,6 +101,9 @@
     padding-left: 50px;
     margin-bottom: -10px;
 }
+.visible img{
+    height: auto;
+}
 .visible .intramarco{
     display: flex;
     flex-direction: column;
@@ -108,7 +111,7 @@
     justify-content: stretch;
     margin: 8px;
     padding: 20px;
-    max-height: 66vh;
+    height: 66vh;
     background-color: rgb(255, 255, 255);
     border: 1px solid rgba(0, 145, 101, 0.8);
 }
@@ -128,6 +131,9 @@
     background-color: rgba(9, 75, 55, 0.8);
     border: 3px double rgba(18, 48, 39, 0.8);
 }
+.alavista{
+    display: flex;
+}
 .oculto{
     display: none;
 }
@@ -145,6 +151,46 @@
 }
 .seccione{
     scroll-margin-top: 80px; 
+}
+.patrocinCard{
+    width: 300px;
+    min-width: 300px;
+    margin-left: 4vh;
+    margin-right: 4vh;
+    margin-top: 6vh;
+    border: 1px solid rgb(69, 83, 72);
+
+
+}
+.apadriCorpo{
+    display: flex;
+    flex-direction: column;
+    align-content: middle;
+    justify-content: space-between;
+}
+.apadriTitle{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color:rgb(255, 101, 41);
+    font-weight: 400;
+    font-size: medium;
+}
+.apadriFoto{
+    max-height: 300px;
+    max-width: 300px;
+
+}
+.bodApadrinados{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+}
+.enCol{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
 }
 h3{
     color:coral;
@@ -175,6 +221,9 @@ body{
     font-family:'Cabin', sans-serif;
     padding-bottom: 60px;
 }
+textarea{
+    resize: none;
+}
 footer{
     color:  #e0ebeb;
     background-color: rgb(90, 124, 124);
@@ -185,4 +234,7 @@ footer{
 footer #accesoAdm{
     display: flex;
     flex-direction: row;
+}
+td img{
+    max-width: 61px;
 }

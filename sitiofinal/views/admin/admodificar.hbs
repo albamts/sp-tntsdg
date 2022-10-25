@@ -1,0 +1,172 @@
+<div class="m-3 p-2">
+    <h5 style="color: rgb(255, 101, 41);">Edicion de datos</h5>
+    <div class="m-3">
+        {{#if error}}
+        <div class="fs-3 text-danger">{{message}}</div>
+        {{else}}
+        <div class="fs-3 text-success">{{mensaje}}</div>
+        {{/if}}
+        <a href="/admin/control" class="p-5">Volver a Control</a>
+    </div>
+</div>
+
+
+
+{{#if edmascota}}
+<div id="sumarMascota">
+    <div class="card card-body m-5">
+        <form action="/admin/admodificar/editarmascota" method="post" enctype="multipart/form-data">
+            <div class="mb-3">
+                <h3>Editar Adoptable</h3>
+            </div>
+            {{!-- este es el id original para ubicar los cambios luego --}}
+            <input type="hidden" class="form-control" id="FormName" name="m_i_mas" value="{{mi_mas}}">
+            <div class="mb-3">
+                <label for="m_nombre" class="form-label">Nombre:</label>
+                <input type="text" class="form-control" id="FormName" name="m_nombre" maxlength="60" value="{{mnombre}}" required>
+            </div>
+            <div class="mb-3">
+                <label for="m_especie" class="form-label">Especie:</label>
+                <input type="text" class="form-control" id="FormEsp" name="m_especie" maxlength="60" value="{{mespecie}}"
+                    required>
+            </div>
+            <div class="mb-3">
+                <label for="m_edad" class="form-label">Edad aprox.:</label>
+                <input type="text" class="form-control" id="FormEdad" name="m_edad" maxlength="40" value="{{medad}}"
+                    required>
+            </div>
+            <div class="mb-3">
+                <label for="m_descripcion" class="form-label">Breve descripcion:</label>
+                <textarea class="form-control" name="m_descripcion" id="FormDesc" cols="30" rows="4" maxlength="180" required>{{mdescripcion}}</textarea>
+            </div>
+            <div class="mb-3">
+                <label for="m_chicos" class="form-label">Puede convivir con niños: </label>
+                <div class="p-1 form-check">
+                    {{#if mchicos}}
+                    <input class="form-check-input" type="checkbox" value="1" id="flexCheckDefault" name="m_chicos" checked>
+                    {{else}}
+                    <input class="form-check-input" type="checkbox" value="1" id="flexCheckDefault" name="m_chicos">
+                    {{/if}}
+                    <label class="form-check-label" for="m_chicos">
+                        (Tildar si es cierto, destildar si no puede convivir con ellos)
+                    </label>
+            </div>
+            <div class="mb-3">
+                <label for="m_animales" class="form-label">Puede convivir con otros animales: </label>
+                <div class="p-1 form-check">
+                    {{#if manimales}}
+                    <input class="form-check-input" type="checkbox" value="1" id="flexCheckDefault" name="m_animales" checked>
+                    {{else}}
+                    <input class="form-check-input" type="checkbox" value="1" id="flexCheckDefault" name="m_animales">
+                    {{/if}}
+                    <label class="form-check-label" for="m_animales">
+                        (Tildar si es cierto, destildar si no puede convivir con ellos)
+                    </label>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="m_salud" class="form-label">Problemas de salud:</label>
+                <input type="text" class="form-control" id="FormSalud" name="m_salud" maxlength="110" value="{{msalud}}" required>
+            </div>
+            <div class="mb-3">
+                <p class="pb-2 text-secondary">Si queres hacer cambios en la foto elegí una de las dos opciones siguientes:</p>
+                <label for="m_imagen" class="form-label">Cambiar foto:</label>
+                {{!-- subir foto --}}
+                <input type="file" name="m_imagen" id="FormCambiarFoto">
+            </div>
+            <div class="mb-3">
+                <label for="m_imagen_borrar" class="form-label"><input type="checkbox" name="m_imagen_borrar" id="FormDelFoto" value="1"> Eliminar foto.</label>
+                {{!-- aca para guardar la img original --}}
+                <input type="hidden" name="m_imagen_orig" id="FormFoto" value="{{mfoto_i}}">
+            </div>
+            {{!-- como solo se pueden editar animales en adopcion, este en realidad queda siempre igual --}}
+            <input type="hidden" name="m_adoptado" value="0">
+            <div class="ps-5">
+                <button type="submit" class="btn btn-success">Guardar cambios en adoptable</button>
+            </div>
+        </form>
+    </div>
+</div>
+{{/if}}
+
+{{!-- adicion de apadrinados --}}
+{{#if edpadrino}}
+<div id="sumarPadrino">
+    <div class="card card-body m-5">
+        <form action="/admin/admodificar/editarpadrinado" method="post" enctype="multipart/form-data">
+            <div class="mb-3">
+                <h3>Añadir nuevo animal para apadrinar</h3>
+            </div>
+            {{!-- este es el id original para ubicar los cambios luego --}}
+            <input type="hidden" class="form-control" id="FormName" name="s_i_ser" value="{{si_ser}}">
+            <div class="mb-3">
+                <label for="s_nombre" class="form-label">Nombre:</label>
+                <input type="text" class="form-control" id="FormName" name="s_nombre" maxlength="60" value="{{snombre}}" required>
+            </div>
+            <div class="mb-3">
+                <label for="s_especie" class="form-label">Especie:</label>
+                <input type="text" class="form-control" id="FormEsp" name="s_especie" maxlength="80" value="{{sespecie}}"
+                    required>
+            </div>
+            <div class="mb-3">
+                <label for="s_adicion" class="form-label">Fecha de adición:</label>
+                <input type="date" class="form-control" id="FormEdad" name="s_adicion" value="{{sadicion}}"
+                    required>
+            </div>
+            <div class="mb-3">
+                <p class="pb-2 text-secondary">Si queres hacer cambios en la foto elegí una de las dos opciones siguientes:</p>
+                <label for="s_imagen" class="form-label">Cambiar foto:</label>
+                {{!-- subir foto --}}
+                <input type="file" name="s_imagen" id="FormCambiarFoto">
+            </div>
+            <div class="mb-3">
+                <label for="s_imagen_borrar" class="form-label"><input type="checkbox" name="s_imagen_borrar" id="FormDelFoto" value="1"> Eliminar foto.</label>
+                {{!-- aca para cuardar la img original --}}
+                <input type="hidden" name="s_imagen_orig" id="FormFoto" value="{{sfoto_i}}">
+            </div>
+            <div class="ps-5">
+                <button type="submit" class="btn btn-success">Guardar cambios en apadrinado</button>
+            </div>
+        </form>
+    </div>
+</div>
+{{/if}}
+
+{{!-- edicion de familias --}}
+{{#if edfamilia}}
+<div id="sumarFamilia">
+    <div class="card card-body m-5">
+        <form action="/admin/admodificar/editarfamilia" method="post">
+            <div class="mb-3">
+                <h3>Editar Familiar</h3>
+            </div>
+            {{!-- este es el id original para ubicar los cambios luego --}}
+            <input type="hidden" class="form-control" id="FormName" name="f_i_fam" value="{{fi_fam}}">
+            <div class="mb-3">
+                <label for="f_nombre" class="form-label">Nombre:</label>
+                <input type="text" class="form-control" id="FormName" name="f_nombre" maxlength="50" value="{{fnombre}}" required>
+            </div>
+            <div class="mb-3">
+                <label for="f_apellido" class="form-label">Apellido:</label>
+                <input type="text" class="form-control" id="FormAp" name="f_apellido" maxlength="50" value="{{fapellido}}" required>
+            </div>
+            <div class="mb-3">
+                <label for="f_direccion" class="form-label">Dirección:</label>
+                <input type="text" class="form-control" id="FormD" name="f_direccion" maxlength="120" value="{{fdireccion}}" required>
+            </div>
+            <div class="mb-3">
+                <label for="f_celular" class="form-label">Celular:</label>
+                <input type="text" class="form-control" id="FormCel1" name="f_celular" maxlength="50" value="{{fcelular}}" required>
+            </div>
+            <div class="mb-3">
+                <label for="f_celular_alternativo" class="form-label">Celular Alterno:</label>
+                <input type="text" class="form-control" id="FormCel2" name="f_celular_alternativo" maxlength="50" value="{{fcelular_alternativo}}" required>
+            </div>
+            <div class="ps-5">
+                <button type="submit" class="btn btn-success">Guardar cambios en familia</button>
+            </div>
+        </form>
+    </div>
+</div>
+{{/if}}
+

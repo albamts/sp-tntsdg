@@ -4,11 +4,10 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const session = require('express-session');
+var fileUpload = require('express-fileupload');
 
 require('dotenv').config();
 var pool = require('./modelos/bd');
-
-
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -18,11 +17,16 @@ var adopcionesRt = require('./routes/adopciones');
 var contactoRt = require('./routes/contacto');
 var nosotrosRt = require('./routes/nosotros');
 var noticiasRt = require('./routes/noticias');
+var apadrinosRT = require('./routes/apadrinos');
 var adopformRt = require('./routes/adopcionpedido');
 var controlRt = require('./routes/admin/control');
 var anoticiasRt = require('./routes/admin/adnoticias');
 var adadoptaRt = require('./routes/admin/adadopciones');
 var adpadrinaRt = require('./routes/admin/adapadrinos');
+var adfamiliaRT = require('./routes/admin/adfamilia');
+var adnovapadrinoRt = require('./routes/admin/adnovaapadrino');
+var adnovamascotaRt = require('./routes/admin/adnovamascota');
+var admodificarRt = require('./routes/admin/admodificar');
 var usentradadRt = require('./routes/usuario/entrada');
 var usregistrodRt = require('./routes/usuario/registro');
 var usportaldRt = require('./routes/usuario/portal');
@@ -76,7 +80,10 @@ securato = async(req, res, next) => {
 
 };
 
-
+app.use(fileUpload({
+  useTempFiles: true,
+  tempFileDir: '/tmp/'
+}));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
@@ -85,12 +92,19 @@ app.use('/adopciones', adopcionesRt);
 app.use('/contacto', contactoRt);
 app.use('/nosotros', nosotrosRt);
 app.use('/noticias', noticiasRt);
+app.use('/apadrinos', apadrinosRT);
 app.use('/adopcionpedido', adopformRt);
 app.use('/admin/inicio', inicioRt);
 app.use('/admin/control', secured, controlRt);
 app.use('/admin/adnoticias', secured, anoticiasRt);
 app.use('/admin/adadopciones', secured, adadoptaRt);
 app.use('/admin/adapadrinos', secured, adpadrinaRt);
+// ada aca a abajo van todos ocn secured luego!!
+app.use('/admin/adfamilia', adfamiliaRT);
+app.use('/admin/adnovaapadrino', adnovapadrinoRt);
+app.use('/admin/adnovamascota', adnovamascotaRt);
+app.use('/admin/admodificar', admodificarRt);
+// de aca arriba van con secured, abajo van con securato
 app.use('/usuario/entrada', usentradadRt);
 app.use('/usuario/registro', usregistrodRt);
 app.use('/usuario/portal', usportaldRt);

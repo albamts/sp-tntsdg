@@ -7,6 +7,7 @@ router.get('/', async function (req, res, next) {
   var noticias = await noticiasModelo.getNoticias();
   res.render('noticias', {
     nombre: req.session.nombre,
+    usuarA: req.session.usuarA,
     noticias
   });
 });

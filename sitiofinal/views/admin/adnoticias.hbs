@@ -1,6 +1,56 @@
 <div class="m-3 p-2">
     <h5 style="color: rgb(255, 101, 41);">Administrar Noticias</h5>
+    {{#if edicion}}
+    <h6 class="ps-3 m-3">Editar Noticia</h6>
+    <div id="editarNoticia"> 
+        <div class="card card-body m-3">
+            <form action="/admin/adnoticias/editarnoticia" method="post">
+                <input type="hidden" name="ei_new" value="{{edi_new}}">
+                <div class="mb-3">
+                    <label for="etitulo" class="form-label">Encabezado:</label>
+                    <input type="text" class="form-control" id="FormName" name="etitulo" maxlength="80" value="{{edtitulo}}" required>
+                </div>
+                <div class="mb-3">
+                    <label for="efecha" class="form-label">Fecha:</label>
+                    <input type="date" class="form-control" id="FormDate" name="efecha" value="{{edfecha}}" required>
+                </div>
+                <div class="mb-3">
+                    <label for="enota" class="form-label">Noticia:</label>
+                    <textarea class="form-control" id="FormNota" cols="32" rows="7" maxlength="1100" name="enota"required>{{ednota}}</textarea>
+                </div>
+                <button type="submit" class="btn btn-success container">Guardar Cambios en Noticia</button>
+            </form>
+        </div>    
+    </div>
+    {{else}}
     <button type="submit" class="btn btn-warning">Agregar Noticia</button>
+    <h6 class="ps-3 m-3">Agregar Noticia</h6>
+    <div id="sumarNoticia"> 
+        <div class="card card-body m-3">
+            <form action="/admin/adnoticias/agregarnoticia" method="post">
+                <div class="mb-3">
+                    <label for="ntitulo" class="form-label">Encabezado:</label>
+                    <input type="text" class="form-control" id="FormName" name="ntitulo" maxlength="80" required>
+                </div>
+                <div class="mb-3">
+                    <label for="nfecha" class="form-label">Fecha:</label>
+                    <input type="date" class="form-control" id="FormDate" name="nfecha" required>
+                </div>
+                <div class="mb-3">
+                    <label for="nnota" class="form-label">Noticia:</label>
+                    <textarea class="form-control" id="FormNota" cols="32" rows="7" maxlength="1100" name="nnota" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-success container">Añadir Nueva Noticia</button>
+            </form>
+        </div>    
+    </div>
+    {{/if}}
+    <h3 class="text-center">{{enviado}}</h3>
+    {{#if error}}
+    <h3 class="text-center text-danger">{{message}}</h3>
+    {{/if}}
+
+    <h6 class="ps-3 mt-5 mb-3">Revisar Noticias</h6>
     <div>
         <table class="table">
             <thead>
@@ -9,7 +59,7 @@
                     <th scope="col-2">Fecha</th>
                     <th scope="col-4">Titulo</th>
                     <th scope="col-2">Nota</th>
-                    <th scope="col-2">Cambiar</th>
+                    <th scope="col-2">Acciones</th>
                 </tr>
             </thead>
             <tbody>
@@ -20,13 +70,14 @@
                     <td>{{titulo}}</td>
                     <td>{{nota}}</td>
                     <td>
-                        <a href="#" class="text-success">Editar</a><br>
-                        {{!-- le envias que variable con el handlebars --}}
-                        <a href="/admin/adnoticias/borrar/{{i_new}}" class="text-danger">Borrar</a>
+                        <div class="enCol">
+                            <a href="/admin/adnoticias/editar/{{i_new}}" class="text-success">Editar</a>
+                            <a href="/admin/adnoticias/borrar/{{i_new}}" class="text-danger">Borrar</a>
+                        </div>                        
                     </td>
                 </tr>
                 {{/each}}
             </tbody>
         </table>
-    </div>
+    </div>    
 </div>

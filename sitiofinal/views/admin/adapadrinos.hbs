@@ -1,27 +1,79 @@
 <div class="m-3 p-2">
-    <h5 style="color: rgb(255, 101, 41);">Adopciones y Adoptados</h5>
-    <div>
-        <p>Desde esta seccion podras ver y administrar todos los animales que estan disponibles para ser patrocinados por usuarios del sitio.</p>
+    <h5 style="color: rgb(255, 101, 41);">Apadrinados: Residentes Permanentes</h5>
+    <div class="pt-2">
+        <p>Desde esta seccion podras ver y administrar todos los animales que estan disponibles para ser apadrinados por usuarios del sitio.</p>
+        <p class="p-1 text-success">{{mensaje}}</p>
     </div>
+    
+    
     <h5 style="color: rgb(255, 101, 41);">Apadrinados</h5>
-    <button type="submit" class="btn btn-warning">Agregar Animal</button>
+
+    <a href="/admin/adnovaapadrino" class="btn btn-warning m-3 ms-2">Agregar Animal</a>
+
+    {{!-- (tabla con todos los animales apadrinados) --}}
     <div>
-        {{!-- (tabla con todos los animales apadrinados) --}}
-        {{!-- tiene los botones: agregar noticia - quitar - editar --}}
+        <table class="table table-bordered" id="adoptableT">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Foto</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Especie</th>
+                    <th scope="col">Ingreso</th>
+                    <th scope="col">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each apadrinos}}
+                <tr>
+                    <th scope="row">{{i_ser}}</th>
+                    <td><img src="{{{imagen}}}" alt=""></td>
+                    <td>{{nombre}}</td>
+                    <td>{{especie}}</td>
+                    <td>{{ingreso}}</td>
+                    <td>
+                        <div class="enCol">
+                            <a href="/admin/adapadrinos/modificar/{{i_ser}}">Editar</a>
+                            {{!-- <a href="/admin/adapadrinos/sumarnota/{{i_ser}}">agregar noticia</a> --}}
+                            <a href="/admin/adapadrinos/borrar/{{i_ser}}">Quitar</a>                        
+                        </div>                        
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
     </div>
     <h5 style="color: rgb(255, 101, 41);">Novedades Apadrinados</h5>
     <div>
         {{!-- aca se elige de cual queres ver las notitas, y luego rellena la tabla de abajo --}}
-        <form action="">
+        {{!-- ademas abre la opcion de agregar otra nota!! --}}
+        <form action="/admin/adapadrinos/mostrarNotas/{{i_ser}}" method="post">
             <label for="elegiAP">Seleccione el animal:</label>
             <select name="elegiAP" id="elegiAP">
-                {{#each apadrinado}}
-                <option value="{{i_ser}}">{{apadrinado}}</option>
+                {{#each apadrinos}}
+                <option value="{{i_ser}}">{{nombre}}, {{especie}}</option>
                 {{/each}}
             </select>
             <button type="submit">Mostrar Notas</button>
         </form>
     </div>
+    {{#if adpadrinew}}
+    <h5 class="m-3" style="color: rgb(255, 101, 41);">Mostrando Notas de {{cualNombre}}, {{cualEspecie}}</h5>
+    <div id="agregaPadriNew" class="p-3">
+        <div class="card card-body m-3">
+            <form action="/admin/adapadrinos/agregarNotita" method="post">
+                {{!-- para indicar a cual aprinado se le agrega la nota --}}
+                <input type="hidden" name="sni_ser" value="{{cualApadrinado}}">                
+                <div class="mb-3">
+                    <label for="snota" class="form-label">Nueva Nota:</label>
+                    <textarea class="form-control" id="FormNota" maxlength="46" cols="30" rows="2" name="snota" required></textarea>
+                </div>
+                <p class="text-secondary p-2">¡Debe ser breve! Pensa en un dato curioso o algun evento que hayan atravesado.</p>
+                <button type="submit" class="btn btn-success container">Añadir Notita</button>
+            </form>
+        </div>
+    </div>
+    {{/if}}
     <div>
         <table class="table table-striped">
             <thead>
@@ -32,13 +84,13 @@
                 </tr>
             </thead>
             <tbody>
-                {{#each seleccionApadrinado}}
+                {{#each laspadrinews}}
                 <tr>
                     {{!-- tabla padrinews --}}
                     <th scope="row">{{i_snew}}</th>
                     <td>{{noticia}}</td>
                     <td>
-                        <a href="/">Eliminar</a>
+                        <a href="/admin/adapadrinos/borrarnota/:i_snew">Eliminar</a>
                     </td>
                 </tr>
                 {{/each}}

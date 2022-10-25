@@ -3,7 +3,7 @@ var router = express.Router();
 var amigosModelo = require('./../../modelos/amigosModelo')
 
 router.get('/', function (req, res, next) {
-    if (req.session.nombre!=""){
+    if (req.session.nombre){
         res.render('admin/inicio', {
             layout: 'admin/layout',
             nombre: req.session.nombre,
@@ -25,7 +25,7 @@ router.post('/', async (req, res, next) => {
         if (data != undefined) {
             req.session.id_amigueado = data.i_am;
             req.session.userA = data.usuario;
-            res.redirect('/usuario/portada');
+            res.redirect('/usuario/portal');
         } else {
             res.render('usuario/entrada', {
                 layout : 'usuario/layout',
