@@ -1,6 +1,25 @@
 <div class="sectionario">
     <h2 class="ps-4">Ultimas novedades</h2>
 </div>
+
+<div id="buscadorNoticia" class="float-end m-3">
+    <form action="/noticias" method="get">
+        <div class="mb-3">
+            <label for="buscar" class="form-label">Busqueda:</label>
+            <input type="search" class="form-control" id="buscar" name="buscar" placeholder="Buscar..." maxlength="80" {{#if
+                buscar}}value="{{buscar}}" {{/if}}>
+        </div>
+        <button type="submit" class="btn btn-success container"><i class="bi bi-eye-fill"></i> Buscar</button>
+    </form>
+    {{#if is_search}}
+    {{#if sinRes}}
+    <p class="text-danger p-1">No hay noticias sobre {{buscar}}</p>
+    {{/if}}
+    {{/if}}
+</div>
+
+
+
 <div id="noticias" class="seccione row gap-2 mt-2">
     <div id="nota" class="col-7">
         <!-- por defecto se llena con el ultimo articulo agregado, haces click y esta seccion cambia para mostrar la noticia elegida -->

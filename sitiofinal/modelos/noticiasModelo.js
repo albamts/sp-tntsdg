@@ -54,8 +54,14 @@ async function modificarNoticia(bod, cual) {
     }
 };
 
+async function buscarNoticia(que) {
+    var query = "select * from noticias where titulo like ? OR nota like ?";
+    var rows = await pool.query(query, ['%' + que + '%', '%' + que + '%']);
+    return rows;
+}
 
-module.exports = { getNoticias, verNoticia, getLastNoticia, getFewNoticias, sumarNoticia, borrarNoticia, modificarNoticia }
+
+module.exports = { getNoticias, verNoticia, getLastNoticia, getFewNoticias, sumarNoticia, borrarNoticia, modificarNoticia, buscarNoticia }
 
 //asi tomamos las noticias de la BD
 // por ahora aca esta todo andando
