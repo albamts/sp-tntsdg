@@ -85,11 +85,10 @@ app.use('/admin/control', secured, controlRt);
 app.use('/admin/adnoticias', secured, anoticiasRt);
 app.use('/admin/adadopciones', secured, adadoptaRt);
 app.use('/admin/adapadrinos', secured, adpadrinaRt);
-// ada aca a abajo van todos ocn secured luego!!
-app.use('/admin/adfamilia', adfamiliaRT);
-app.use('/admin/adnovaapadrino', adnovapadrinoRt);
-app.use('/admin/adnovamascota', adnovamascotaRt);
-app.use('/admin/admodificar', admodificarRt);
+app.use('/admin/adfamilia', secured, adfamiliaRT);
+app.use('/admin/adnovaapadrino', secured, adnovapadrinoRt);
+app.use('/admin/adnovamascota', secured, adnovamascotaRt);
+app.use('/admin/admodificar', secured, admodificarRt);
 
 
 
