@@ -6,7 +6,7 @@ async function getNoticias() {
     return rows;
 };
 
-// este es para la lista de indexedDB, pruebo con 2 luego pasalo a 7
+// este es para la lista de indexedDB, 
 async function getFewNoticias() {
     var query = "select * from noticias order by i_new desc limit 7";
     var rows = await pool.query(query);
@@ -17,6 +17,12 @@ async function getFewNoticias() {
 async function verNoticia(i_new){
     var query = "select * from noticias where i_new=? limit 1";
     var row = await pool.query(query, [i_new]);
+    return row[0];
+};
+
+async function getLastNoticia(){
+    var query = "select * from noticias order by i_new desc limit 1";
+    var row = await pool.query(query);
     return row[0];
 };
 
@@ -49,7 +55,7 @@ async function modificarNoticia(bod, cual) {
 };
 
 
-module.exports = { getNoticias, verNoticia, getFewNoticias, sumarNoticia, borrarNoticia, modificarNoticia }
+module.exports = { getNoticias, verNoticia, getLastNoticia, getFewNoticias, sumarNoticia, borrarNoticia, modificarNoticia }
 
 //asi tomamos las noticias de la BD
 // por ahora aca esta todo andando

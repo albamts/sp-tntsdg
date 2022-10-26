@@ -78,8 +78,5 @@ async function verPocasNotasApadrinado(este) {
     return rows;
 }
 
-// async function getNotasApadri {
-
-// }
 
 module.exports = { getApadrinados, agregarPadrinable, quitarApadrinado, quitarAllNotasDeApadrinado, borrarNotaApadrinado, selectApadrinado, verTodasNotasApadrinado, agregarNotita, modificarPadrinable, verPocasNotasApadrinado }

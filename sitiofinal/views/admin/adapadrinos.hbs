@@ -47,7 +47,7 @@
     <div>
         {{!-- aca se elige de cual queres ver las notitas, y luego rellena la tabla de abajo --}}
         {{!-- ademas abre la opcion de agregar otra nota!! --}}
-        <form action="/admin/adapadrinos/mostrarNotas/{{i_ser}}" method="post">
+        <form action="/admin/adapadrinos/mostrarNotas" method="post">
             <label for="elegiAP">Seleccione el animal:</label>
             <select name="elegiAP" id="elegiAP">
                 {{#each apadrinos}}
@@ -66,7 +66,7 @@
                 <input type="hidden" name="sni_ser" value="{{cualApadrinado}}">                
                 <div class="mb-3">
                     <label for="snota" class="form-label">Nueva Nota:</label>
-                    <textarea class="form-control" id="FormNota" maxlength="46" cols="30" rows="2" name="snota" required></textarea>
+                    <textarea class="form-control" id="FormNota" maxlength="80" cols="30" rows="1" name="snota" required></textarea>
                 </div>
                 <p class="text-secondary p-2">¡Debe ser breve! Pensa en un dato curioso o algun evento que hayan atravesado.</p>
                 <button type="submit" class="btn btn-success container">Añadir Notita</button>
@@ -90,7 +90,7 @@
                     <th scope="row">{{i_snew}}</th>
                     <td>{{noticia}}</td>
                     <td>
-                        <a href="/admin/adapadrinos/borrarnota/:i_snew">Eliminar</a>
+                        <a href="/admin/adapadrinos/borrarnota/{{i_snew}}">Eliminar</a>
                     </td>
                 </tr>
                 {{/each}}

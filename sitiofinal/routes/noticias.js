@@ -2,13 +2,16 @@ const { application } = require('express');
 var express = require('express');
 var router = express.Router();
 var noticiasModelo = require('./../modelos/noticiasModelo');
-
+//LISTO
 router.get('/', async function (req, res, next) {
   var noticias = await noticiasModelo.getNoticias();
+  var lastNoticia = await noticiasModelo.getLastNoticia();
   res.render('noticias', {
     nombre: req.session.nombre,
-    usuarA: req.session.usuarA,
-    noticias
+    noticias,
+    tit_new: lastNoticia.titulo,
+    nota_new: lastNoticia.nota,
+    fe_new: lastNoticia.fecha.toLocaleDateString()
   });
 });
 
@@ -17,6 +20,7 @@ router.get('/id/:i_new', async function (req, res, next) {
   var notita = await noticiasModelo.verNoticia(i_new);
   var noticias = await noticiasModelo.getNoticias();
   res.render('noticias', {
+    nombre: req.session.nombre,
     notita,
     noticias,
     tit_new: notita.titulo,

@@ -7,7 +7,6 @@ const { route } = require('.');
 router.get('/', function(req, res, next) {
   res.render('contacto', {
     nombre: req.session.nombre,
-    userA: req.session.userA
   });
 });
 
@@ -38,6 +37,7 @@ router.post('/', async (req, res, next) => {
   var info = await transport.sendMail(msjs);
 
   res.render('contacto', {
+    nombre: req.session.nombre,
     enviado: 'Se envío tu mensaje.'
   });
 })

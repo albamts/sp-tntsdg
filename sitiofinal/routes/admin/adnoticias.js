@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var noticiasModelo = require('./../../modelos/noticiasModelo');
 
-// fijate que es asincronica esta funcion!
+// TODO LISTO
 router.get('/', async function (req, res, next) {
     var noticias = await noticiasModelo.getNoticias();
     res.render('admin/adnoticias', {
@@ -30,12 +30,14 @@ router.post('/agregarnoticia', async (req, res, next) => {
             });
         } else {
           res.render('admin/adnoticias', {
+            nombre: req.session.nombre,
             error: true, message: 'Rellene todos los campos.'
           })        
         }    
       } catch (error) {
         console.log(error);
         res.render('admin/adnoticias', {
+          nombre: req.session.nombre,
           error: true, message: 'No pudo guardarse la noticia.'
         }); 
       }
@@ -78,6 +80,7 @@ router.post('/editarnoticia', async (req, res, next) => {
           });
       } else {
         res.render('admin/adnoticias', {
+          nombre: req.session.nombre,
           error: true, message: 'Rellene todos los campos.'
         })        
       }    
@@ -85,6 +88,7 @@ router.post('/editarnoticia', async (req, res, next) => {
       console.log(error);
       var noticias = await noticiasModelo.getNoticias();
       res.render('admin/adnoticias', {
+        nombre: req.session.nombre,
         noticias,
         edicion: false,
         error: true,

@@ -16,8 +16,8 @@
 
     </div>
     <div id="articulos" class="col-4">
-        <!-- aca tendria que buscar y generar links segun cuantos articulos titulares tengo o tendran que estar cargados todos si o si para poder llamarlos a vista -->
         <ul id="articuloslista" class="overflow-auto">
+            <h5 class="text-decoration-none pb-1">Lista de Noticias:</h5>
             {{#each noticias}}
             <li><a href="/noticias/id/{{i_new}}">{{titulo}}</a></li>
             {{/each}}

@@ -5,7 +5,7 @@ var cloudinary = require('cloudinary').v2;
 
 
 
-// fijate que es asincronica esta funcion!
+//TODO ANDANDO
 router.get('/', function (req, res, next) {
     if (i_mas==undefined) {
         res.redirect('/admin/adadopciones');
@@ -60,6 +60,7 @@ router.post('/agregarf', async (req, res, next) => {
     } catch (error) {
         console.log(error);
         res.render('admin/adfamilia', {
+            nombre: req.session.nombre,
             error: true, message: 'Ha ocurrido un error. No pudo registrarse la adopcion.'
         });
     }

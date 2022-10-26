@@ -6,11 +6,20 @@ var util = require('util');
 var cloudinary = require('cloudinary').v2;
 const destroy = util.promisify(cloudinary.uploader.destroy);
 
-// fijate que es asincronica esta funcion!
-//__listo
+//TODO ANDANDO
 router.get('/', async function (req, res, next) {
     var adoptables = await adoptaModelo.getAdoptables();
     adoptables = adoptables.map(adoptani => {
+        if (adoptani.chicos===1) {
+          var apchicos = 'Si'      
+        } else {
+          var apchicos = 'No'      
+        };
+        if (adoptani.animales===1) {
+          var apanimales = 'Si'
+        } else {
+          var apanimales = 'No'
+        }
         if (adoptani.foto_i) {
           const imagen = cloudinary.url(adoptani.foto_i, {
             width: 60,
@@ -18,11 +27,15 @@ router.get('/', async function (req, res, next) {
           });
           return {
             ...adoptani,
+            apchicos,
+            apanimales,
             imagen
           }
         } else {
           return {
             ...adoptani,
+            apchicos,
+            apanimales,
             imagen: '/images/img_pendiente.png'
           }
         }
@@ -110,7 +123,7 @@ router.get('/borrar/:i_mas', async (req, res, next) => {
   });
 
 //con este se elimina a la Familia, tambien libera a la mascota como no adoptada otra vez
-//---> PROBALO ----->
+//LISTO
 router.get('/borrarf/:i_fam/:i_mas', async (req, res, next) => {
   var esta = req.params.i_fam;
   var qsta = req.params.i_mas;
@@ -183,6 +196,7 @@ router.get('/modificarm/:i_mas', async (req, res, next) => {
     var i_mas = req.params.i_mas;
     var eseMascota = await adoptaModelo.selectAdoptable(i_mas);
     res.render('admin/admodificar', {
+      nombre: req.session.nombre,
       mi_mas: eseMascota.i_mas,
       mnombre: eseMascota.nombre,
       mespecie: eseMascota.especie,
@@ -205,13 +219,14 @@ router.get('/modificarm/:i_mas', async (req, res, next) => {
 
 
 // con este se va a modificar FAMILIA
-//---> PROBALO ----->
+//LISTO
 router.get('/modificarf/:i_fam', async (req, res, next) => {
   try {
     var i_fam = req.params.i_fam;
     var eseFamiliar = await adoptaModelo.selectFamilia(i_fam);
     console.log(eseFamiliar);
     res.render('admin/admodificar', {
+      nombre: req.session.nombre,
       fi_fam: eseFamiliar.i_fam,
       fnombre: eseFamiliar.nombre,
       fapellido: eseFamiliar.apellido,

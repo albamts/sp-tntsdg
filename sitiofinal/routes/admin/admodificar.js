@@ -20,7 +20,7 @@ router.get('/', function (req, res, next) {
 
 
 // ESTE VA SER PARA GUARDAR MASCOTAS
-//---> PROBALO -->
+//LISTO
 router.post('/editarmascota', async (req, res, next) => {
     try {
         // aca maneja la posibilidad de modificaciones en foto
@@ -57,19 +57,21 @@ router.post('/editarmascota', async (req, res, next) => {
         }
         await adoptaModelo.modificarAdoptable(editadoM, cual);
         res.render('admin/admodificar', {
+            nombre: req.session.nombre,
             mensaje: 'Editado exitosamente.'
         });
         
       } catch (error) {
         console.log(error);
         res.render('admin/admodificar', {
-          error: true, message: 'Ha ocurrido un error. Podrian no haberse guardado los cambios.'
+            nombre: req.session.nombre,
+            error: true, message: 'Ha ocurrido un error. Podrian no haberse guardado los cambios.'
         }); 
       }
 });
 
 //ESTE VA A SER PARA GUARDAR APADRINADOS
-//---> PROBALO -->
+//LISTO
 router.post('/editarpadrinado', async (req, res, next) => {
     try {
         // aca maneja la posibilidad de modificaciones en foto
@@ -98,18 +100,20 @@ router.post('/editarpadrinado', async (req, res, next) => {
         }
         await apadraModelo.modificarPadrinable(editadoS, cual);
         res.render('admin/admodificar', {
+            nombre: req.session.nombre,
             mensaje: 'Editado exitosamente.'
         }); 
       } catch (error) {
         console.log(error);
         res.render('admin/admodificar', {
-          error: true, message: 'Ha ocurrido un error. Podrian no haberse guardado los cambios.'
+            nombre: req.session.nombre,
+            error: true, message: 'Ha ocurrido un error. Podrian no haberse guardado los cambios.'
         }); 
       }
 });
 
 //ESTE VA A SER PARA EDITAR FAMILIAS
-//---> PROBALO -->
+//LISTO
 router.post('/editarfamilia', async (req, res, next) => {
     try {
         var cual = req.body.f_i_fam;
@@ -129,6 +133,7 @@ router.post('/editarfamilia', async (req, res, next) => {
     } catch (error) {
         console.log(error);
         res.render('admin/admodificar', {
+            nombre: req.session.nombre,
             error: true, message: 'Ha ocurrido un error. Podrian no haberse guardado los cambios.'
         });
     }

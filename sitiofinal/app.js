@@ -19,6 +19,7 @@ var nosotrosRt = require('./routes/nosotros');
 var noticiasRt = require('./routes/noticias');
 var apadrinosRT = require('./routes/apadrinos');
 var adopformRt = require('./routes/adopcionpedido');
+var apadranewsRt = require('./routes/apadrinosnews');
 var controlRt = require('./routes/admin/control');
 var anoticiasRt = require('./routes/admin/adnoticias');
 var adadoptaRt = require('./routes/admin/adadopciones');
@@ -27,9 +28,7 @@ var adfamiliaRT = require('./routes/admin/adfamilia');
 var adnovapadrinoRt = require('./routes/admin/adnovaapadrino');
 var adnovamascotaRt = require('./routes/admin/adnovamascota');
 var admodificarRt = require('./routes/admin/admodificar');
-var usentradadRt = require('./routes/usuario/entrada');
-var usregistrodRt = require('./routes/usuario/registro');
-var usportaldRt = require('./routes/usuario/portal');
+
 
 var app = express();
 
@@ -65,20 +64,6 @@ secured = async(req, res, next) => {
 
 };
 
-//esta va a ser para las userA
-securato = async(req, res, next) => {
-  try{
-    console.log(req.session.id_amigueado);
-    if(req.session.id_amigueado){
-      next();
-    } else {
-      res.redirect('/usuario/entrada');
-    }
-  } catch(error) {
-    console.log(error);
-  }
-
-};
 
 app.use(fileUpload({
   useTempFiles: true,
@@ -94,6 +79,7 @@ app.use('/nosotros', nosotrosRt);
 app.use('/noticias', noticiasRt);
 app.use('/apadrinos', apadrinosRT);
 app.use('/adopcionpedido', adopformRt);
+app.use('/apadrinosnews', apadranewsRt);
 app.use('/admin/inicio', inicioRt);
 app.use('/admin/control', secured, controlRt);
 app.use('/admin/adnoticias', secured, anoticiasRt);
@@ -104,12 +90,6 @@ app.use('/admin/adfamilia', adfamiliaRT);
 app.use('/admin/adnovaapadrino', adnovapadrinoRt);
 app.use('/admin/adnovamascota', adnovamascotaRt);
 app.use('/admin/admodificar', admodificarRt);
-// de aca arriba van con secured, abajo van con securato
-app.use('/usuario/entrada', usentradadRt);
-app.use('/usuario/registro', usregistrodRt);
-app.use('/usuario/portal', usportaldRt);
-//app.use('/usuario/portal', securato, usportaldRt);
-
 
 
 

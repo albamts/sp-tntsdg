@@ -36,19 +36,17 @@ router.get('/', async function(req, res, next) {
 
   res.render('adopciones', {
     nombre: req.session.nombre,
-    userA: req.session.userA,
     adoptable
   });
 });
 
-//---> PROBALO -->
+//LISTO
 router.get('/link/:i_mas', async function(req, res, next) {
   var cual = req.params.i_mas;
   var este = await adoptaModelo.selectAdoptable(cual);
   var adoptables = await adoptaModelo.getAdoptables();
   res.render('adopcionpedido', {
     nombre: req.session.nombre,
-    userA: req.session.userA,
     idMascota: este.i_mas,
     nMascota: este.nombre,
     adoptables

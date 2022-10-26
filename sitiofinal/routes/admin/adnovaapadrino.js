@@ -6,7 +6,7 @@ var util = require('util');
 var cloudinary = require('cloudinary').v2;
 const uploader = util.promisify(cloudinary.uploader.upload);
 
-
+//LISTO
 
 router.get('/', function (req, res, next) {
     res.render('admin/adnovaapadrino', {
@@ -37,6 +37,7 @@ router.post('/agregarapa', async (req, res, next) => {
       } catch (error) {
         console.log(error);
         res.render('admin/adnovaapadrino', {
+          nombre: req.session.nombre,
           error: true, message: 'No se pudo agregar el animal.'
         }); 
       }

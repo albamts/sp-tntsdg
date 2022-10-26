@@ -29,31 +29,36 @@ router.get('/', async function(req, res, next) {
 
   res.render('apadrinos', {
     nombre: req.session.nombre,
-    userA: req.session.userA,
     apadrinados
   });
 });
 
-
-router.get('/link/:id', async function (req, res, next) {
+//LISTO
+router.get('/link/:i_ser', async function (req, res, next) {
   var i_ser = req.params.i_ser;
-  if (req.session.userA) {
-    // llamar a lo que sea que use para agregar apadrinados al user
-    
-  } else {
-    if (req.session.userA){
-        res.render('usuario/portal', {
-            layout: 'usuario/layout',
-            userA: req.session.userA,
-        });
-    };
-    res.render('usuario/registro', {
-        layout: 'usuario/layout',
-    });
-
-    
-  }
+  console.log(i_ser)
+  var esteApadrinado = await apadraModelo.selectApadrinado(i_ser);
+  var notis = await apadraModelo.verTodasNotasApadrinado(i_ser);
   
+  if (esteApadrinado.foto_i) {
+    var imagen = cloudinary.url(esteApadrinado.foto_i, {
+      width: 480,
+      height: 480,
+      crop: 'fill'
+    });
+  } else {
+    var imagen = '/images/img_pendiente.png'
+  };
+
+  res.render('apadrinosnews', {
+    nombre: req.session.nombre,
+    snombre: esteApadrinado.nombre,
+    sespecie: esteApadrinado.especie,
+    imagen,
+    notis
+  });
+
+
 });
 
 module.exports = router;

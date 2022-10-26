@@ -1,0 +1,25 @@
+<div class="mt-4" style="max-width: 90%;">
+    <div class="ms-5 p-2 border-bottom border-success">
+        <h3 style="color: rgb(255, 101, 41);"><span class="text-black fs-2">{{snombre}}</span>, {{sespecie}}</h3>
+    </div>
+</div>
+{{!-- una foto del animal y las "noticias" que le corresponden --}}
+<div>
+    <div id="selectApadrinado" class="row justify-content-center">
+        <div class="col-4 p-1">
+            <img src="{{{imagen}}}" id="fotoApadrinado" class="img-fluid" alt="foto: {{snombre}}, {{sespecie}}">
+        </div>
+        <div id="newsApadrinado" class="col-4 pt-1 overflow-auto">
+            <table id="notisApa" class="table m-0 p-0">
+                <tbody>
+                    {{#each notis}}
+                    <tr class="bg-warning bg-opacity-25">
+                        <th scope="row"><i class="bi bi-chat-quote"></i></th>
+                        <td>{{noticia}}</td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

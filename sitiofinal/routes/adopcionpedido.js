@@ -8,12 +8,11 @@ router.get('/', async function(req, res, next) {
   var adoptables = await adoptaModelo.getAdoptables();
   res.render('adopcionpedido', {
     nombre: req.session.nombre,
-    userA: req.session.userA,
     adoptables
   });
 });
 
-
+//LISTO
 router.post('/', async (req, res, next) => {
 
   console.log(req.body);
@@ -44,6 +43,7 @@ router.post('/', async (req, res, next) => {
   var info = await transport.sendMail(msjs);
 
   res.render('adopcionpedido', {
+    nombre: req.session.nombre,
     enviado: 'Se envío tu mensaje.'
   });
 })
